@@ -1,18 +1,27 @@
 [build-system]
-requires = ["setuptools>=61.0", "wheel"]
+requires = [
+    "setuptools>=61.0",
+    "wheel",
+]
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "antescofo"
-version = "0.1.0"
+version = "0.1.1"
 description = "A Python interface for Antescofo, the score following and synchronous programming language for music"
 readme = "README.md"
 requires-python = ">=3.8"
-license = {text = "MIT"}
 authors = [
-    {name = "Antescofo Python Interface Contributors"}
+    { name = "Antescofo Python Interface Contributors" },
 ]
-keywords = ["antescofo", "music", "osc", "score-following", "real-time", "ircam"]
+keywords = [
+    "antescofo",
+    "music",
+    "osc",
+    "score-following",
+    "real-time",
+    "ircam",
+]
 classifiers = [
     "Development Status :: 3 - Alpha",
     "Intended Audience :: Developers",
@@ -27,10 +36,12 @@ classifiers = [
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
 ]
-
 dependencies = [
     "python-osc>=1.8.0",
 ]
+
+[project.license]
+text = "MIT"
 
 [project.optional-dependencies]
 dev = [
@@ -48,12 +59,18 @@ Repository = "https://github.com/yourusername/antescofo"
 "Bug Tracker" = "https://github.com/yourusername/antescofo/issues"
 
 [tool.setuptools.packages.find]
-where = ["."]
-include = ["antescofo*"]
+where = [
+    ".",
+]
+include = [
+    "antescofo*",
+]
 
 [tool.black]
 line-length = 100
-target-version = ['py38']
+target-version = [
+    "py38",
+]
 
 [tool.isort]
 profile = "black"
