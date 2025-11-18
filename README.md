@@ -14,13 +14,26 @@ A comprehensive Python library for communicating with and controlling [Antescofo
 
 ## Installation
 
-### From PyPI (when published)
+### Prerequisites
+
+**Important**: This Python library is a **client** that communicates with Antescofo. You must have Antescofo itself running before you can use this library.
+
+You need one of the following:
+- **Antescofo for Max/MSP**: The `antescofo~` external object in Max/MSP
+- **Antescofo for PureData**: The `antescofo` external in PureData
+- **Antescofo Standalone**: The standalone Antescofo application
+
+Download Antescofo from [IRCAM Forum](https://forum.ircam.fr/projects/detail/antescofo/) or see the [official documentation](https://antescofo-doc.ircam.fr/).
+
+### Installing the Python Client
+
+#### From PyPI (when published)
 
 ```bash
 pip install antescofo
 ```
 
-### From Source
+#### From Source
 
 ```bash
 git clone https://github.com/yourusername/antescofo.git
@@ -28,10 +41,25 @@ cd antescofo
 pip install -e .
 ```
 
-### Dependencies
+### Python Dependencies
 
 - Python >= 3.8
 - python-osc >= 1.8.0
+
+### Verifying Your Setup
+
+Before using this Python library:
+
+1. **Start Antescofo** (Max/MSP, PureData, or standalone)
+2. **Configure OSC ports** in Antescofo:
+   - Default Antescofo receive port: 5678
+   - Default Ascograph port: 6789 (for receiving events)
+3. **Test the connection** with the Python client (see Quick Start below)
+
+If you get connection errors, verify that:
+- Antescofo is running
+- The ports match between Antescofo and your Python code
+- No firewall is blocking localhost connections
 
 ## Quick Start
 

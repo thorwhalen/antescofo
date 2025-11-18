@@ -98,6 +98,7 @@ class AntescofoClient:
 
         try:
             self._osc = OSCCommunicator(self.host, self.port, self.receive_port)
+            self._connected = True  # Set connected before calling other methods
 
             # Start receiving if enabled
             if self.receive_port is not None:
@@ -105,11 +106,24 @@ class AntescofoClient:
                 # Enable OSC communication in Antescofo
                 self.enable_osc_communication()
 
-            self._connected = True
             logger.info(f"Connected to Antescofo at {self.host}:{self.port}")
 
         except Exception as e:
-            raise ConnectionError(f"Failed to connect to Antescofo: {e}")
+            self._connected = False  # Reset on failure
+            if self._osc:
+                self._osc.close()
+                self._osc = None
+            raise ConnectionError(
+                f"Failed to connect to Antescofo at {self.host}:{self.port}: {e}\n\n"
+                f"Make sure Antescofo is running and listening on {self.host}:{self.port}.\n"
+                f"You need to have Antescofo (Max/MSP external, PureData external, or standalone) "
+                f"running before you can use this Python client.\n\n"
+                f"To check if Antescofo is running:\n"
+                f"  - If using Max/MSP: Check that the antescofo~ object is loaded\n"
+                f"  - If using PureData: Check that the antescofo external is loaded\n"
+                f"  - If using standalone: Launch the Antescofo application\n\n"
+                f"For more information, see: https://antescofo-doc.ircam.fr/"
+            )
 
     def disconnect(self):
         """
