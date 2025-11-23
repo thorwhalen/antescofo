@@ -1,0 +1,23 @@
+; Simple Demo Score with PD Synth
+@global $volume := 0.5
+@global $pd_port := 10000
+
+; === NOTE 1: Play C4 (440 Hz) ===
+NOTE 1.0 C4 60
+    OSC "/synth/play" 440 $volume
+    print "▶ Playing C4 at 440Hz"
+
+; === NOTE 2: Play E4 (660 Hz) ===
+NOTE 1.0 E4 64
+    OSC "/synth/play" 660 $volume
+    print "▶ Playing E4 at 660Hz"
+
+; === NOTE 3: Play G4 (784 Hz) ===
+NOTE 1.0 G4 67
+    OSC "/synth/play" 784 $volume
+    print "▶ Playing G4 at 784Hz"
+
+; === END: Stop synth ===
+NOTE 0.5 C5 72
+    OSC "/synth/stop" 0
+    print "⏹ Score finished - synth stopped"

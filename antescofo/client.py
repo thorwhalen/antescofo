@@ -31,6 +31,7 @@ from .events import Event, EventType
 from .exceptions import AntescofoException, ConnectionError
 from .osc import OSCCommunicator
 from .types import AntescofoValue, to_osc_value
+from .util import get_config_value
 
 logger = logging.getLogger(__name__)
 
@@ -63,7 +64,7 @@ class AntescofoClient:
     def __init__(
         self,
         host: str = DEFAULT_HOST,
-        port: int = DEFAULT_ANTESCOFO_PORT,
+        port: int = None,
         receive_port: Optional[int] = None,
         auto_connect: bool = False,
     ):
@@ -72,13 +73,21 @@ class AntescofoClient:
 
         Args:
             host: Hostname or IP of the Antescofo instance (default: localhost)
-            port: Port to send messages to (default: 5678)
-            receive_port: Port to receive messages on (default: None, disabled)
+            port: Port to send messages to (default: from config or 5678)
+            receive_port: Port to receive messages on (default: from config or None)
             auto_connect: Whether to automatically connect on initialization
         """
         self.host = host
-        self.port = port
-        self.receive_port = receive_port
+        self.port = (
+            port
+            if port is not None
+            else get_config_value("antescofo_send_port", DEFAULT_ANTESCOFO_PORT)
+        )
+        self.receive_port = (
+            receive_port
+            if receive_port is not None
+            else get_config_value("python_receive_port", None)
+        )
 
         self._osc: Optional[OSCCommunicator] = None
         self._connected = False

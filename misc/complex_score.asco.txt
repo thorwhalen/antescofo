@@ -1,0 +1,24 @@
+; Complex Score with Variables
+
+; Initialize global variables
+@global $tempo := 120
+@global $counter := 0
+
+; Define a function
+@fun_def count_notes() {
+    $counter := $counter + 1
+    print "Note #" $counter
+}
+
+; Melody with tempo changes
+NOTE 1.0 C4 60
+    count_notes()
+    $tempo := 100
+NOTE 1.0 E4 64
+    count_notes()
+    $tempo := 140
+NOTE 1.0 G4 67
+    count_notes()
+NOTE 2.0 C5 72
+    count_notes()
+    print "Done! Total notes: " $counter

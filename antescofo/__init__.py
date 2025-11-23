@@ -23,6 +23,17 @@ from .osc import OSCCommunicator
 from .score import ScoreFile, ScoreBuilder
 from .types import Tab, Map, AntescofoValue, to_osc_value, from_osc_value
 
+# Configuration utilities
+from .util import (
+    init_config,
+    load_config,
+    save_config,
+    get_config_value,
+    set_config_value,
+    resolve_score_path,
+    print_config,
+)
+
 # Exceptions
 from .exceptions import (
     AntescofoException,
@@ -61,6 +72,14 @@ __all__ = [
     "AntescofoValue",
     "to_osc_value",
     "from_osc_value",
+    # Configuration
+    "init_config",
+    "load_config",
+    "save_config",
+    "get_config_value",
+    "set_config_value",
+    "resolve_score_path",
+    "print_config",
     # Exceptions
     "AntescofoException",
     "ConnectionError",
