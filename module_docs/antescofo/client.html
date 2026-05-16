@@ -1,0 +1,364 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>antescofo.client &mdash; antescofo 0.1.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css?v=4ae1632d" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=a58bc63e"></script>
+      <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../../_static/toggleprompt.js?v=d7ede5d2"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="antescofo.constants" href="constants.html" />
+    <link rel="prev" title="antescofo" href="../antescofo.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            antescofo
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../antescofo.html">antescofo</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">antescofo.client</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#antescofo.client.AntescofoClient"><code class="docutils literal notranslate"><span class="pre">AntescofoClient</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#antescofo.client.AntescofoClient.configure_ascograph"><code class="docutils literal notranslate"><span class="pre">AntescofoClient.configure_ascograph()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#antescofo.client.AntescofoClient.connect"><code class="docutils literal notranslate"><span class="pre">AntescofoClient.connect()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#antescofo.client.AntescofoClient.disconnect"><code class="docutils literal notranslate"><span class="pre">AntescofoClient.disconnect()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#antescofo.client.AntescofoClient.enable_incoming_osc"><code class="docutils literal notranslate"><span class="pre">AntescofoClient.enable_incoming_osc()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#antescofo.client.AntescofoClient.enable_osc_communication"><code class="docutils literal notranslate"><span class="pre">AntescofoClient.enable_osc_communication()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#antescofo.client.AntescofoClient.load_score"><code class="docutils literal notranslate"><span class="pre">AntescofoClient.load_score()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#antescofo.client.AntescofoClient.next_event"><code class="docutils literal notranslate"><span class="pre">AntescofoClient.next_event()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#antescofo.client.AntescofoClient.off"><code class="docutils literal notranslate"><span class="pre">AntescofoClient.off()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#antescofo.client.AntescofoClient.on"><code class="docutils literal notranslate"><span class="pre">AntescofoClient.on()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#antescofo.client.AntescofoClient.pause"><code class="docutils literal notranslate"><span class="pre">AntescofoClient.pause()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#antescofo.client.AntescofoClient.prev_event"><code class="docutils literal notranslate"><span class="pre">AntescofoClient.prev_event()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#antescofo.client.AntescofoClient.resume"><code class="docutils literal notranslate"><span class="pre">AntescofoClient.resume()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#antescofo.client.AntescofoClient.send_osc"><code class="docutils literal notranslate"><span class="pre">AntescofoClient.send_osc()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#antescofo.client.AntescofoClient.set_incoming_osc_port"><code class="docutils literal notranslate"><span class="pre">AntescofoClient.set_incoming_osc_port()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#antescofo.client.AntescofoClient.set_tempo"><code class="docutils literal notranslate"><span class="pre">AntescofoClient.set_tempo()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#antescofo.client.AntescofoClient.start"><code class="docutils literal notranslate"><span class="pre">AntescofoClient.start()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#antescofo.client.AntescofoClient.stop"><code class="docutils literal notranslate"><span class="pre">AntescofoClient.stop()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#antescofo.client.AntescofoClient.wait"><code class="docutils literal notranslate"><span class="pre">AntescofoClient.wait()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="constants.html">antescofo.constants</a></li>
+<li class="toctree-l1"><a class="reference internal" href="events.html">antescofo.events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exceptions.html">antescofo.exceptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="osc.html">antescofo.osc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="score.html">antescofo.score</a></li>
+<li class="toctree-l1"><a class="reference internal" href="simple_antescofo_score_generator.html">antescofo.simple_antescofo_score_generator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="types.html">antescofo.types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="util.html">antescofo.util</a></li>
+<li class="toctree-l1"><a class="reference internal" href="wip.html">antescofo.wip</a></li>
+<li class="toctree-l1"><a class="reference internal" href="wip/audio.html">antescofo.wip.audio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="wip/builder.html">antescofo.wip.builder</a></li>
+<li class="toctree-l1"><a class="reference internal" href="wip/events.html">antescofo.wip.events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="wip/player.html">antescofo.wip.player</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">antescofo</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">antescofo.client</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/module_docs/antescofo/client.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-antescofo.client">
+<span id="antescofo-client"></span><h1>antescofo.client<a class="headerlink" href="#module-antescofo.client" title="Link to this heading"></a></h1>
+<p>High-level client interface for Antescofo.</p>
+<p>Provides a user-friendly API for controlling Antescofo instances.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="antescofo.client.AntescofoClient">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">antescofo.client.</span></span><span class="sig-name descname"><span class="pre">AntescofoClient</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">host</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'localhost'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">port</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">receive_port</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">auto_connect</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/antescofo/client.html#AntescofoClient"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#antescofo.client.AntescofoClient" title="Link to this definition"></a></dt>
+<dd><p>High-level client for controlling an Antescofo instance.</p>
+<p>This class provides a Pythonic interface to Antescofo, allowing you to:
+- Load and control score playback
+- Send OSC messages
+- Subscribe to events
+- Control transport (start, stop, tempo, etc.)</p>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">client</span> <span class="o">=</span> <span class="n">AntescofoClient</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">client</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">client</span><span class="o">.</span><span class="n">load_score</span><span class="p">(</span><span class="s2">&quot;myscore.asco.txt&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">client</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">client</span><span class="o">.</span><span class="n">set_tempo</span><span class="p">(</span><span class="mi">120</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">client</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">client</span><span class="o">.</span><span class="n">disconnect</span><span class="p">()</span>
+</pre></div>
+</div>
+<dl>
+<dt>Or use as a context manager:</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="n">AntescofoClient</span><span class="p">()</span> <span class="k">as</span> <span class="n">client</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="n">client</span><span class="o">.</span><span class="n">load_score</span><span class="p">(</span><span class="s2">&quot;myscore.asco.txt&quot;</span><span class="p">)</span>
+<span class="gp">... </span>    <span class="n">client</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="antescofo.client.AntescofoClient.configure_ascograph">
+<span class="sig-name descname"><span class="pre">configure_ascograph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">host</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'localhost'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">port</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">6789</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/antescofo/client.html#AntescofoClient.configure_ascograph"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#antescofo.client.AntescofoClient.configure_ascograph" title="Link to this definition"></a></dt>
+<dd><p>Configure Ascograph communication.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>host</strong> – Ascograph host</p></li>
+<li><p><strong>port</strong> – Ascograph port (default: 6789)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="antescofo.client.AntescofoClient.connect">
+<span class="sig-name descname"><span class="pre">connect</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/antescofo/client.html#AntescofoClient.connect"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#antescofo.client.AntescofoClient.connect" title="Link to this definition"></a></dt>
+<dd><p>Establish connection to Antescofo.</p>
+<p>Creates the OSC communicator and starts receiving if a receive port is configured.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="antescofo.client.AntescofoClient.disconnect">
+<span class="sig-name descname"><span class="pre">disconnect</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/antescofo/client.html#AntescofoClient.disconnect"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#antescofo.client.AntescofoClient.disconnect" title="Link to this definition"></a></dt>
+<dd><p>Disconnect from Antescofo.</p>
+<p>Stops receiving and cleans up resources.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="antescofo.client.AntescofoClient.enable_incoming_osc">
+<span class="sig-name descname"><span class="pre">enable_incoming_osc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">enable</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/antescofo/client.html#AntescofoClient.enable_incoming_osc"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#antescofo.client.AntescofoClient.enable_incoming_osc" title="Link to this definition"></a></dt>
+<dd><p>Enable or disable incoming OSC messages.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>enable</strong> – Whether to enable (True) or disable (False)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="antescofo.client.AntescofoClient.enable_osc_communication">
+<span class="sig-name descname"><span class="pre">enable_osc_communication</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">enable</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/antescofo/client.html#AntescofoClient.enable_osc_communication"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#antescofo.client.AntescofoClient.enable_osc_communication" title="Link to this definition"></a></dt>
+<dd><p>Enable or disable OSC communication with Ascograph/external systems.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>enable</strong> – Whether to enable (True) or disable (False)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="antescofo.client.AntescofoClient.load_score">
+<span class="sig-name descname"><span class="pre">load_score</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filepath</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Path</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/antescofo/client.html#AntescofoClient.load_score"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#antescofo.client.AntescofoClient.load_score" title="Link to this definition"></a></dt>
+<dd><p>Load an Antescofo score file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>filepath</strong> – Path to the score file (.asco.txt or similar)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="antescofo.client.AntescofoClient.next_event">
+<span class="sig-name descname"><span class="pre">next_event</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/antescofo/client.html#AntescofoClient.next_event"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#antescofo.client.AntescofoClient.next_event" title="Link to this definition"></a></dt>
+<dd><p>Skip to the next event in the score.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="antescofo.client.AntescofoClient.off">
+<span class="sig-name descname"><span class="pre">off</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="events.html#antescofo.events.EventType" title="antescofo.events.EventType"><span class="pre">EventType</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">handler</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="events.html#antescofo.events.Event" title="antescofo.events.Event"><span class="pre">Event</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/antescofo/client.html#AntescofoClient.off"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#antescofo.client.AntescofoClient.off" title="Link to this definition"></a></dt>
+<dd><p>Unsubscribe from events.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>event_type</strong> – Type of event to unsubscribe from</p></li>
+<li><p><strong>handler</strong> – Handler to remove</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="antescofo.client.AntescofoClient.on">
+<span class="sig-name descname"><span class="pre">on</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="events.html#antescofo.events.EventType" title="antescofo.events.EventType"><span class="pre">EventType</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">handler</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="events.html#antescofo.events.Event" title="antescofo.events.Event"><span class="pre">Event</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/antescofo/client.html#AntescofoClient.on"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#antescofo.client.AntescofoClient.on" title="Link to this definition"></a></dt>
+<dd><p>Subscribe to events from Antescofo.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>event_type</strong> – Type of event to subscribe to (EventType enum or string),
+or None to subscribe to all events</p></li>
+<li><p><strong>handler</strong> – Callback function that takes an Event object</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span><span class="w"> </span><span class="nf">on_tempo_change</span><span class="p">(</span><span class="n">event</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Tempo changed to: </span><span class="si">{</span><span class="n">event</span><span class="o">.</span><span class="n">data</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">client</span><span class="o">.</span><span class="n">on</span><span class="p">(</span><span class="n">EventType</span><span class="o">.</span><span class="n">TEMPO</span><span class="p">,</span> <span class="n">on_tempo_change</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># or</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">client</span><span class="o">.</span><span class="n">on</span><span class="p">(</span><span class="s2">&quot;tempo&quot;</span><span class="p">,</span> <span class="n">on_tempo_change</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="antescofo.client.AntescofoClient.pause">
+<span class="sig-name descname"><span class="pre">pause</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/antescofo/client.html#AntescofoClient.pause"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#antescofo.client.AntescofoClient.pause" title="Link to this definition"></a></dt>
+<dd><p>Pause score playback.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="antescofo.client.AntescofoClient.prev_event">
+<span class="sig-name descname"><span class="pre">prev_event</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/antescofo/client.html#AntescofoClient.prev_event"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#antescofo.client.AntescofoClient.prev_event" title="Link to this definition"></a></dt>
+<dd><p>Go back to the previous event in the score.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="antescofo.client.AntescofoClient.resume">
+<span class="sig-name descname"><span class="pre">resume</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/antescofo/client.html#AntescofoClient.resume"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#antescofo.client.AntescofoClient.resume" title="Link to this definition"></a></dt>
+<dd><p>Resume paused playback.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="antescofo.client.AntescofoClient.send_osc">
+<span class="sig-name descname"><span class="pre">send_osc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">address</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/antescofo/client.html#AntescofoClient.send_osc"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#antescofo.client.AntescofoClient.send_osc" title="Link to this definition"></a></dt>
+<dd><p>Send an OSC message to Antescofo.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>address</strong> – OSC address (will be prefixed with /antescofo/ if not present)</p></li>
+<li><p><strong>*args</strong> – Message arguments</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="antescofo.client.AntescofoClient.set_incoming_osc_port">
+<span class="sig-name descname"><span class="pre">set_incoming_osc_port</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">port</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/antescofo/client.html#AntescofoClient.set_incoming_osc_port"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#antescofo.client.AntescofoClient.set_incoming_osc_port" title="Link to this definition"></a></dt>
+<dd><p>Set the port for incoming OSC messages.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>port</strong> – Port number</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="antescofo.client.AntescofoClient.set_tempo">
+<span class="sig-name descname"><span class="pre">set_tempo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tempo</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/antescofo/client.html#AntescofoClient.set_tempo"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#antescofo.client.AntescofoClient.set_tempo" title="Link to this definition"></a></dt>
+<dd><p>Set the tempo.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>tempo</strong> – Tempo in BPM (beats per minute)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="antescofo.client.AntescofoClient.start">
+<span class="sig-name descname"><span class="pre">start</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/antescofo/client.html#AntescofoClient.start"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#antescofo.client.AntescofoClient.start" title="Link to this definition"></a></dt>
+<dd><p>Start score playback.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="antescofo.client.AntescofoClient.stop">
+<span class="sig-name descname"><span class="pre">stop</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/antescofo/client.html#AntescofoClient.stop"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#antescofo.client.AntescofoClient.stop" title="Link to this definition"></a></dt>
+<dd><p>Stop score playback.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="antescofo.client.AntescofoClient.wait">
+<span class="sig-name descname"><span class="pre">wait</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">seconds</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/antescofo/client.html#AntescofoClient.wait"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#antescofo.client.AntescofoClient.wait" title="Link to this definition"></a></dt>
+<dd><p>Wait for a specified number of seconds.</p>
+<p>Useful for keeping a script alive while Antescofo is playing.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>seconds</strong> – Number of seconds to wait</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../antescofo.html" class="btn btn-neutral float-left" title="antescofo" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="constants.html" class="btn btn-neutral float-right" title="antescofo.constants" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright NO COPYRIGHT.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,4 @@
+antescofo
+=========
+.. automodule:: antescofo
+   :members:

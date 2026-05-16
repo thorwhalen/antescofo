@@ -1,0 +1,4 @@
+antescofo.wip.audio
+===================
+.. automodule:: antescofo.wip.audio
+   :members:

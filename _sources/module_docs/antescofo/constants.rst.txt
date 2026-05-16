@@ -1,0 +1,4 @@
+antescofo.constants
+===================
+.. automodule:: antescofo.constants
+   :members:

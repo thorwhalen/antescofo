@@ -1,0 +1,4 @@
+antescofo.exceptions
+====================
+.. automodule:: antescofo.exceptions
+   :members:

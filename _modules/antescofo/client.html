@@ -1,0 +1,537 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>antescofo.client &mdash; antescofo 0.1.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css?v=4ae1632d" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=a58bc63e"></script>
+      <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../../_static/toggleprompt.js?v=d7ede5d2"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            antescofo
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../module_docs/antescofo.html">antescofo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../module_docs/antescofo/client.html">antescofo.client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../module_docs/antescofo/constants.html">antescofo.constants</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../module_docs/antescofo/events.html">antescofo.events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../module_docs/antescofo/exceptions.html">antescofo.exceptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../module_docs/antescofo/osc.html">antescofo.osc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../module_docs/antescofo/score.html">antescofo.score</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../module_docs/antescofo/simple_antescofo_score_generator.html">antescofo.simple_antescofo_score_generator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../module_docs/antescofo/types.html">antescofo.types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../module_docs/antescofo/util.html">antescofo.util</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../module_docs/antescofo/wip.html">antescofo.wip</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../module_docs/antescofo/wip/audio.html">antescofo.wip.audio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../module_docs/antescofo/wip/builder.html">antescofo.wip.builder</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../module_docs/antescofo/wip/events.html">antescofo.wip.events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../module_docs/antescofo/wip/player.html">antescofo.wip.player</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">antescofo</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">antescofo.client</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for antescofo.client</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">High-level client interface for Antescofo.</span>
+
+<span class="sd">Provides a user-friendly API for controlling Antescofo instances.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Callable</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Union</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">.constants</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">CMD_ASCOGRAPHCOMM</span><span class="p">,</span>
+    <span class="n">CMD_ASCOGRAPHCONF</span><span class="p">,</span>
+    <span class="n">CMD_INCOMINGOSC</span><span class="p">,</span>
+    <span class="n">CMD_INCOMING_OSC_PORT</span><span class="p">,</span>
+    <span class="n">CMD_LOAD</span><span class="p">,</span>
+    <span class="n">CMD_NEXTEVENT</span><span class="p">,</span>
+    <span class="n">CMD_PAUSE</span><span class="p">,</span>
+    <span class="n">CMD_PREVEVENT</span><span class="p">,</span>
+    <span class="n">CMD_RESUME</span><span class="p">,</span>
+    <span class="n">CMD_START</span><span class="p">,</span>
+    <span class="n">CMD_STOP</span><span class="p">,</span>
+    <span class="n">CMD_TEMPO</span><span class="p">,</span>
+    <span class="n">DEFAULT_ANTESCOFO_PORT</span><span class="p">,</span>
+    <span class="n">DEFAULT_ASCOGRAPH_PORT</span><span class="p">,</span>
+    <span class="n">DEFAULT_HOST</span><span class="p">,</span>
+    <span class="n">OSC_PREFIX_ANTESCOFO</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.events</span><span class="w"> </span><span class="kn">import</span> <span class="n">Event</span><span class="p">,</span> <span class="n">EventType</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.exceptions</span><span class="w"> </span><span class="kn">import</span> <span class="n">AntescofoException</span><span class="p">,</span> <span class="ne">ConnectionError</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.osc</span><span class="w"> </span><span class="kn">import</span> <span class="n">OSCCommunicator</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.types</span><span class="w"> </span><span class="kn">import</span> <span class="n">to_osc_value</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.util</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_config_value</span>
+
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="AntescofoClient">
+<a class="viewcode-back" href="../../module_docs/antescofo/client.html#antescofo.AntescofoClient">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">AntescofoClient</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    High-level client for controlling an Antescofo instance.</span>
+
+<span class="sd">    This class provides a Pythonic interface to Antescofo, allowing you to:</span>
+<span class="sd">    - Load and control score playback</span>
+<span class="sd">    - Send OSC messages</span>
+<span class="sd">    - Subscribe to events</span>
+<span class="sd">    - Control transport (start, stop, tempo, etc.)</span>
+
+<span class="sd">    Example:</span>
+<span class="sd">        &gt;&gt;&gt; client = AntescofoClient()</span>
+<span class="sd">        &gt;&gt;&gt; client.connect()</span>
+<span class="sd">        &gt;&gt;&gt; client.load_score(&quot;myscore.asco.txt&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; client.start()</span>
+<span class="sd">        &gt;&gt;&gt; client.set_tempo(120)</span>
+<span class="sd">        &gt;&gt;&gt; client.stop()</span>
+<span class="sd">        &gt;&gt;&gt; client.disconnect()</span>
+
+<span class="sd">    Or use as a context manager:</span>
+<span class="sd">        &gt;&gt;&gt; with AntescofoClient() as client:</span>
+<span class="sd">        ...     client.load_score(&quot;myscore.asco.txt&quot;)</span>
+<span class="sd">        ...     client.start()</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">host</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">DEFAULT_HOST</span><span class="p">,</span>
+        <span class="n">port</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">receive_port</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">auto_connect</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initialize the Antescofo client.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            host: Hostname or IP of the Antescofo instance (default: localhost)</span>
+<span class="sd">            port: Port to send messages to (default: from config or 5678)</span>
+<span class="sd">            receive_port: Port to receive messages on (default: from config or None)</span>
+<span class="sd">            auto_connect: Whether to automatically connect on initialization</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">host</span> <span class="o">=</span> <span class="n">host</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">port</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">port</span>
+            <span class="k">if</span> <span class="n">port</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+            <span class="k">else</span> <span class="n">get_config_value</span><span class="p">(</span><span class="s2">&quot;antescofo_send_port&quot;</span><span class="p">,</span> <span class="n">DEFAULT_ANTESCOFO_PORT</span><span class="p">)</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">receive_port</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">receive_port</span>
+            <span class="k">if</span> <span class="n">receive_port</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+            <span class="k">else</span> <span class="n">get_config_value</span><span class="p">(</span><span class="s2">&quot;python_receive_port&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_osc</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">OSCCommunicator</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_connected</span> <span class="o">=</span> <span class="kc">False</span>
+
+        <span class="k">if</span> <span class="n">auto_connect</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
+
+<div class="viewcode-block" id="AntescofoClient.connect">
+<a class="viewcode-back" href="../../module_docs/antescofo/client.html#antescofo.AntescofoClient.connect">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">connect</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Establish connection to Antescofo.</span>
+
+<span class="sd">        Creates the OSC communicator and starts receiving if a receive port is configured.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_connected</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;Already connected to Antescofo&quot;</span><span class="p">)</span>
+            <span class="k">return</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_osc</span> <span class="o">=</span> <span class="n">OSCCommunicator</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">host</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">port</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">receive_port</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_connected</span> <span class="o">=</span> <span class="kc">True</span>  <span class="c1"># Set connected before calling other methods</span>
+
+            <span class="c1"># Start receiving if enabled</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">receive_port</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_osc</span><span class="o">.</span><span class="n">start_receiving</span><span class="p">()</span>
+                <span class="c1"># Enable OSC communication in Antescofo</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">enable_osc_communication</span><span class="p">()</span>
+
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Connected to Antescofo at </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">host</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">port</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_connected</span> <span class="o">=</span> <span class="kc">False</span>  <span class="c1"># Reset on failure</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_osc</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_osc</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_osc</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="k">raise</span> <span class="ne">ConnectionError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;Failed to connect to Antescofo at </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">host</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">port</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="se">\n\n</span><span class="s2">&quot;</span>
+                <span class="sa">f</span><span class="s2">&quot;Make sure Antescofo is running and listening on </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">host</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">port</span><span class="si">}</span><span class="s2">.</span><span class="se">\n</span><span class="s2">&quot;</span>
+                <span class="sa">f</span><span class="s2">&quot;You need to have Antescofo (Max/MSP external, PureData external, or standalone) &quot;</span>
+                <span class="sa">f</span><span class="s2">&quot;running before you can use this Python client.</span><span class="se">\n\n</span><span class="s2">&quot;</span>
+                <span class="sa">f</span><span class="s2">&quot;To check if Antescofo is running:</span><span class="se">\n</span><span class="s2">&quot;</span>
+                <span class="sa">f</span><span class="s2">&quot;  - If using Max/MSP: Check that the antescofo~ object is loaded</span><span class="se">\n</span><span class="s2">&quot;</span>
+                <span class="sa">f</span><span class="s2">&quot;  - If using PureData: Check that the antescofo external is loaded</span><span class="se">\n</span><span class="s2">&quot;</span>
+                <span class="sa">f</span><span class="s2">&quot;  - If using standalone: Launch the Antescofo application</span><span class="se">\n\n</span><span class="s2">&quot;</span>
+                <span class="sa">f</span><span class="s2">&quot;For more information, see: https://antescofo-doc.ircam.fr/&quot;</span>
+            <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="AntescofoClient.disconnect">
+<a class="viewcode-back" href="../../module_docs/antescofo/client.html#antescofo.AntescofoClient.disconnect">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">disconnect</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Disconnect from Antescofo.</span>
+
+<span class="sd">        Stops receiving and cleans up resources.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_connected</span><span class="p">:</span>
+            <span class="k">return</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_osc</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_osc</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_osc</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_connected</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Disconnected from Antescofo&quot;</span><span class="p">)</span></div>
+
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_ensure_connected</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Ensure we&#39;re connected to Antescofo.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_connected</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">_osc</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">AntescofoException</span><span class="p">(</span><span class="s2">&quot;Not connected to Antescofo. Call connect() first.&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_send_command</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">command</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Send an internal command to Antescofo.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            command: Command name</span>
+<span class="sd">            *args: Command arguments</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_ensure_connected</span><span class="p">()</span>
+        <span class="c1"># Commands are sent as raw messages (not via OSC address)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_osc</span><span class="o">.</span><span class="n">send_raw</span><span class="p">(</span><span class="n">command</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span>
+
+<div class="viewcode-block" id="AntescofoClient.send_osc">
+<a class="viewcode-back" href="../../module_docs/antescofo/client.html#antescofo.AntescofoClient.send_osc">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">send_osc</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">address</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Send an OSC message to Antescofo.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            address: OSC address (will be prefixed with /antescofo/ if not present)</span>
+<span class="sd">            *args: Message arguments</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_ensure_connected</span><span class="p">()</span>
+
+        <span class="c1"># Add prefix if not present</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">address</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="n">OSC_PREFIX_ANTESCOFO</span><span class="p">):</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">address</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">):</span>
+                <span class="n">address</span> <span class="o">=</span> <span class="s2">&quot;/&quot;</span> <span class="o">+</span> <span class="n">address</span>
+            <span class="n">address</span> <span class="o">=</span> <span class="n">OSC_PREFIX_ANTESCOFO</span> <span class="o">+</span> <span class="n">address</span><span class="o">.</span><span class="n">lstrip</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Convert Python values to OSC values</span>
+        <span class="n">osc_args</span> <span class="o">=</span> <span class="p">[</span><span class="n">to_osc_value</span><span class="p">(</span><span class="n">arg</span><span class="p">)</span> <span class="k">for</span> <span class="n">arg</span> <span class="ow">in</span> <span class="n">args</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_osc</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">address</span><span class="p">,</span> <span class="o">*</span><span class="n">osc_args</span><span class="p">)</span></div>
+
+
+    <span class="c1"># Transport control methods</span>
+
+<div class="viewcode-block" id="AntescofoClient.load_score">
+<a class="viewcode-back" href="../../module_docs/antescofo/client.html#antescofo.AntescofoClient.load_score">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">load_score</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filepath</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Path</span><span class="p">]):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Load an Antescofo score file.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            filepath: Path to the score file (.asco.txt or similar)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">filepath</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">filepath</span><span class="p">)</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Loading score: </span><span class="si">{</span><span class="n">filepath</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_send_command</span><span class="p">(</span><span class="n">CMD_LOAD</span><span class="p">,</span> <span class="n">filepath</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="AntescofoClient.start">
+<a class="viewcode-back" href="../../module_docs/antescofo/client.html#antescofo.AntescofoClient.start">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">start</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Start score playback.&quot;&quot;&quot;</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Starting playback&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_send_command</span><span class="p">(</span><span class="n">CMD_START</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="AntescofoClient.stop">
+<a class="viewcode-back" href="../../module_docs/antescofo/client.html#antescofo.AntescofoClient.stop">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">stop</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Stop score playback.&quot;&quot;&quot;</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Stopping playback&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_send_command</span><span class="p">(</span><span class="n">CMD_STOP</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="AntescofoClient.pause">
+<a class="viewcode-back" href="../../module_docs/antescofo/client.html#antescofo.AntescofoClient.pause">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">pause</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Pause score playback.&quot;&quot;&quot;</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Pausing playback&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_send_command</span><span class="p">(</span><span class="n">CMD_PAUSE</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="AntescofoClient.resume">
+<a class="viewcode-back" href="../../module_docs/antescofo/client.html#antescofo.AntescofoClient.resume">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">resume</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Resume paused playback.&quot;&quot;&quot;</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Resuming playback&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_send_command</span><span class="p">(</span><span class="n">CMD_RESUME</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="AntescofoClient.next_event">
+<a class="viewcode-back" href="../../module_docs/antescofo/client.html#antescofo.AntescofoClient.next_event">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">next_event</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Skip to the next event in the score.&quot;&quot;&quot;</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Skipping to next event&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_send_command</span><span class="p">(</span><span class="n">CMD_NEXTEVENT</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="AntescofoClient.prev_event">
+<a class="viewcode-back" href="../../module_docs/antescofo/client.html#antescofo.AntescofoClient.prev_event">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">prev_event</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Go back to the previous event in the score.&quot;&quot;&quot;</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Going to previous event&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_send_command</span><span class="p">(</span><span class="n">CMD_PREVEVENT</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="AntescofoClient.set_tempo">
+<a class="viewcode-back" href="../../module_docs/antescofo/client.html#antescofo.AntescofoClient.set_tempo">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">set_tempo</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tempo</span><span class="p">:</span> <span class="nb">float</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Set the tempo.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            tempo: Tempo in BPM (beats per minute)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Setting tempo to </span><span class="si">{</span><span class="n">tempo</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_send_command</span><span class="p">(</span><span class="n">CMD_TEMPO</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span><span class="n">tempo</span><span class="p">))</span></div>
+
+
+    <span class="c1"># OSC configuration methods</span>
+
+<div class="viewcode-block" id="AntescofoClient.enable_osc_communication">
+<a class="viewcode-back" href="../../module_docs/antescofo/client.html#antescofo.AntescofoClient.enable_osc_communication">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">enable_osc_communication</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">enable</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Enable or disable OSC communication with Ascograph/external systems.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            enable: Whether to enable (True) or disable (False)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_send_command</span><span class="p">(</span><span class="n">CMD_ASCOGRAPHCOMM</span><span class="p">,</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">enable</span> <span class="k">else</span> <span class="mi">0</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="AntescofoClient.enable_incoming_osc">
+<a class="viewcode-back" href="../../module_docs/antescofo/client.html#antescofo.AntescofoClient.enable_incoming_osc">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">enable_incoming_osc</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">enable</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Enable or disable incoming OSC messages.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            enable: Whether to enable (True) or disable (False)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_send_command</span><span class="p">(</span><span class="n">CMD_INCOMINGOSC</span><span class="p">,</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">enable</span> <span class="k">else</span> <span class="mi">0</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="AntescofoClient.set_incoming_osc_port">
+<a class="viewcode-back" href="../../module_docs/antescofo/client.html#antescofo.AntescofoClient.set_incoming_osc_port">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">set_incoming_osc_port</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">port</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Set the port for incoming OSC messages.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            port: Port number</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_send_command</span><span class="p">(</span><span class="n">CMD_INCOMING_OSC_PORT</span><span class="p">,</span> <span class="n">port</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="AntescofoClient.configure_ascograph">
+<a class="viewcode-back" href="../../module_docs/antescofo/client.html#antescofo.AntescofoClient.configure_ascograph">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">configure_ascograph</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">host</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">DEFAULT_HOST</span><span class="p">,</span> <span class="n">port</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">DEFAULT_ASCOGRAPH_PORT</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Configure Ascograph communication.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            host: Ascograph host</span>
+<span class="sd">            port: Ascograph port (default: 6789)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_send_command</span><span class="p">(</span><span class="n">CMD_ASCOGRAPHCONF</span><span class="p">,</span> <span class="n">host</span><span class="p">,</span> <span class="n">port</span><span class="p">)</span></div>
+
+
+    <span class="c1"># Event subscription methods</span>
+
+<div class="viewcode-block" id="AntescofoClient.on">
+<a class="viewcode-back" href="../../module_docs/antescofo/client.html#antescofo.AntescofoClient.on">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">on</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">event_type</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">EventType</span><span class="p">,</span> <span class="nb">str</span><span class="p">]],</span>
+        <span class="n">handler</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">Event</span><span class="p">],</span> <span class="kc">None</span><span class="p">],</span>
+    <span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Subscribe to events from Antescofo.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            event_type: Type of event to subscribe to (EventType enum or string),</span>
+<span class="sd">                       or None to subscribe to all events</span>
+<span class="sd">            handler: Callback function that takes an Event object</span>
+
+<span class="sd">        Example:</span>
+<span class="sd">            &gt;&gt;&gt; def on_tempo_change(event):</span>
+<span class="sd">            ...     print(f&quot;Tempo changed to: {event.data}&quot;)</span>
+<span class="sd">            &gt;&gt;&gt; client.on(EventType.TEMPO, on_tempo_change)</span>
+<span class="sd">            &gt;&gt;&gt; # or</span>
+<span class="sd">            &gt;&gt;&gt; client.on(&quot;tempo&quot;, on_tempo_change)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_ensure_connected</span><span class="p">()</span>
+
+        <span class="c1"># Convert string to EventType if needed</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">event_type</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+            <span class="n">event_type</span> <span class="o">=</span> <span class="n">EventType</span><span class="o">.</span><span class="n">from_message</span><span class="p">(</span><span class="n">event_type</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_osc</span><span class="o">.</span><span class="n">subscribe</span><span class="p">(</span><span class="n">event_type</span><span class="p">,</span> <span class="n">handler</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="AntescofoClient.off">
+<a class="viewcode-back" href="../../module_docs/antescofo/client.html#antescofo.AntescofoClient.off">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">off</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">event_type</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">EventType</span><span class="p">,</span> <span class="nb">str</span><span class="p">]],</span>
+        <span class="n">handler</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">Event</span><span class="p">],</span> <span class="kc">None</span><span class="p">],</span>
+    <span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Unsubscribe from events.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            event_type: Type of event to unsubscribe from</span>
+<span class="sd">            handler: Handler to remove</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_ensure_connected</span><span class="p">()</span>
+
+        <span class="c1"># Convert string to EventType if needed</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">event_type</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+            <span class="n">event_type</span> <span class="o">=</span> <span class="n">EventType</span><span class="o">.</span><span class="n">from_message</span><span class="p">(</span><span class="n">event_type</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_osc</span><span class="o">.</span><span class="n">unsubscribe</span><span class="p">(</span><span class="n">event_type</span><span class="p">,</span> <span class="n">handler</span><span class="p">)</span></div>
+
+
+    <span class="c1"># Utility methods</span>
+
+<div class="viewcode-block" id="AntescofoClient.wait">
+<a class="viewcode-back" href="../../module_docs/antescofo/client.html#antescofo.AntescofoClient.wait">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">wait</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">seconds</span><span class="p">:</span> <span class="nb">float</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Wait for a specified number of seconds.</span>
+
+<span class="sd">        Useful for keeping a script alive while Antescofo is playing.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            seconds: Number of seconds to wait</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">seconds</span><span class="p">)</span></div>
+
+
+    <span class="c1"># Context manager support</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__enter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Context manager entry.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_connected</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
+        <span class="k">return</span> <span class="bp">self</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__exit__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">exc_type</span><span class="p">,</span> <span class="n">exc_val</span><span class="p">,</span> <span class="n">exc_tb</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Context manager exit.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">disconnect</span><span class="p">()</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__del__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Cleanup on deletion.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_connected</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">disconnect</span><span class="p">()</span></div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright NO COPYRIGHT.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,358 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>antescofo.osc &mdash; antescofo 0.1.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css?v=4ae1632d" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=a58bc63e"></script>
+      <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../../_static/toggleprompt.js?v=d7ede5d2"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            antescofo
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../module_docs/antescofo.html">antescofo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../module_docs/antescofo/client.html">antescofo.client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../module_docs/antescofo/constants.html">antescofo.constants</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../module_docs/antescofo/events.html">antescofo.events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../module_docs/antescofo/exceptions.html">antescofo.exceptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../module_docs/antescofo/osc.html">antescofo.osc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../module_docs/antescofo/score.html">antescofo.score</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../module_docs/antescofo/simple_antescofo_score_generator.html">antescofo.simple_antescofo_score_generator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../module_docs/antescofo/types.html">antescofo.types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../module_docs/antescofo/util.html">antescofo.util</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../module_docs/antescofo/wip.html">antescofo.wip</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../module_docs/antescofo/wip/audio.html">antescofo.wip.audio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../module_docs/antescofo/wip/builder.html">antescofo.wip.builder</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../module_docs/antescofo/wip/events.html">antescofo.wip.events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../module_docs/antescofo/wip/player.html">antescofo.wip.player</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">antescofo</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">antescofo.osc</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for antescofo.osc</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">OSC (Open Sound Control) communication layer for Antescofo.</span>
+
+<span class="sd">Handles low-level OSC message sending and receiving using python-osc.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">threading</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Callable</span><span class="p">,</span> <span class="n">Optional</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">pythonosc</span><span class="w"> </span><span class="kn">import</span> <span class="n">dispatcher</span> <span class="k">as</span> <span class="n">osc_dispatcher</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pythonosc</span><span class="w"> </span><span class="kn">import</span> <span class="n">osc_server</span><span class="p">,</span> <span class="n">udp_client</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">.constants</span><span class="w"> </span><span class="kn">import</span> <span class="n">DEFAULT_ANTESCOFO_PORT</span><span class="p">,</span> <span class="n">DEFAULT_HOST</span><span class="p">,</span> <span class="n">OSC_PREFIX_ANTESCOFO</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.events</span><span class="w"> </span><span class="kn">import</span> <span class="n">Event</span><span class="p">,</span> <span class="n">EventType</span><span class="p">,</span> <span class="n">ActionTraceEvent</span><span class="p">,</span> <span class="n">EventDispatcher</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.exceptions</span><span class="w"> </span><span class="kn">import</span> <span class="n">OSCError</span>
+
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="OSCCommunicator">
+<a class="viewcode-back" href="../../module_docs/antescofo/osc.html#antescofo.OSCCommunicator">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">OSCCommunicator</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Handles OSC communication with Antescofo.</span>
+
+<span class="sd">    Manages sending messages to Antescofo and receiving messages from it.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">host</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">DEFAULT_HOST</span><span class="p">,</span>
+        <span class="n">send_port</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">DEFAULT_ANTESCOFO_PORT</span><span class="p">,</span>
+        <span class="n">receive_port</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initialize the OSC communicator.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            host: Hostname or IP address of the Antescofo instance</span>
+<span class="sd">            send_port: Port to send messages to Antescofo</span>
+<span class="sd">            receive_port: Port to receive messages from Antescofo (if None, receiving is disabled)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">host</span> <span class="o">=</span> <span class="n">host</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">send_port</span> <span class="o">=</span> <span class="n">send_port</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">receive_port</span> <span class="o">=</span> <span class="n">receive_port</span>
+
+        <span class="c1"># OSC client for sending</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_client</span> <span class="o">=</span> <span class="n">udp_client</span><span class="o">.</span><span class="n">SimpleUDPClient</span><span class="p">(</span><span class="n">host</span><span class="p">,</span> <span class="n">send_port</span><span class="p">)</span>
+
+        <span class="c1"># OSC server for receiving (if enabled)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_server</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">osc_server</span><span class="o">.</span><span class="n">ThreadingOSCUDPServer</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_server_thread</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_dispatcher</span> <span class="o">=</span> <span class="n">osc_dispatcher</span><span class="o">.</span><span class="n">Dispatcher</span><span class="p">()</span>
+
+        <span class="c1"># Event dispatcher</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">event_dispatcher</span> <span class="o">=</span> <span class="n">EventDispatcher</span><span class="p">()</span>
+
+        <span class="c1"># Setup message handlers if receiving is enabled</span>
+        <span class="k">if</span> <span class="n">receive_port</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_setup_handlers</span><span class="p">()</span>
+
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;OSC Communicator initialized: send to </span><span class="si">{</span><span class="n">host</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">send_port</span><span class="si">}</span><span class="s2">, &quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;receive on port </span><span class="si">{</span><span class="n">receive_port</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_setup_handlers</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Setup OSC message handlers.&quot;&quot;&quot;</span>
+        <span class="c1"># Map all /antescofo/* messages</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_dispatcher</span><span class="o">.</span><span class="n">map</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">OSC_PREFIX_ANTESCOFO</span><span class="si">}</span><span class="s2">*&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_handle_antescofo_message</span>
+        <span class="p">)</span>
+
+        <span class="c1"># Catch-all for other messages</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_dispatcher</span><span class="o">.</span><span class="n">set_default_handler</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_handle_unknown_message</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_handle_antescofo_message</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">address</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Handle a message from Antescofo.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            address: OSC address pattern</span>
+<span class="sd">            *args: Message arguments</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Extract the message type from the address</span>
+        <span class="c1"># e.g., &quot;/antescofo/tempo&quot; -&gt; &quot;tempo&quot;</span>
+        <span class="n">message_type</span> <span class="o">=</span> <span class="n">address</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">OSC_PREFIX_ANTESCOFO</span><span class="p">)</span> <span class="p">:]</span>
+
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Received Antescofo message: </span><span class="si">{</span><span class="n">address</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">args</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Create appropriate event</span>
+        <span class="n">event_type</span> <span class="o">=</span> <span class="n">EventType</span><span class="o">.</span><span class="n">from_message</span><span class="p">(</span><span class="n">message_type</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">event_type</span> <span class="o">==</span> <span class="n">EventType</span><span class="o">.</span><span class="n">ACTION_TRACE</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">6</span><span class="p">:</span>
+            <span class="c1"># Parse action trace</span>
+            <span class="n">event</span> <span class="o">=</span> <span class="n">ActionTraceEvent</span><span class="p">(</span>
+                <span class="n">action_name</span><span class="o">=</span><span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+                <span class="n">trace_type</span><span class="o">=</span><span class="n">args</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+                <span class="n">father_name</span><span class="o">=</span><span class="n">args</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span>
+                <span class="n">now</span><span class="o">=</span><span class="nb">float</span><span class="p">(</span><span class="n">args</span><span class="p">[</span><span class="mi">3</span><span class="p">]),</span>
+                <span class="n">rnow</span><span class="o">=</span><span class="nb">float</span><span class="p">(</span><span class="n">args</span><span class="p">[</span><span class="mi">4</span><span class="p">]),</span>
+                <span class="n">message</span><span class="o">=</span><span class="n">args</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">5</span> <span class="k">else</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                <span class="n">raw_address</span><span class="o">=</span><span class="n">address</span><span class="p">,</span>
+            <span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># Generic event</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span> <span class="k">else</span> <span class="n">args</span>
+            <span class="n">event</span> <span class="o">=</span> <span class="n">Event</span><span class="p">(</span><span class="n">event_type</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">raw_address</span><span class="o">=</span><span class="n">address</span><span class="p">)</span>
+
+        <span class="c1"># Dispatch to event handlers</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">event_dispatcher</span><span class="o">.</span><span class="n">dispatch</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_handle_unknown_message</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">address</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Handle messages that don&#39;t match known patterns.&quot;&quot;&quot;</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Received unknown message: </span><span class="si">{</span><span class="n">address</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">args</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">event</span> <span class="o">=</span> <span class="n">Event</span><span class="p">(</span><span class="n">EventType</span><span class="o">.</span><span class="n">UNKNOWN</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">raw_address</span><span class="o">=</span><span class="n">address</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">event_dispatcher</span><span class="o">.</span><span class="n">dispatch</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
+
+<div class="viewcode-block" id="OSCCommunicator.start_receiving">
+<a class="viewcode-back" href="../../module_docs/antescofo/osc.html#antescofo.OSCCommunicator.start_receiving">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">start_receiving</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Start the OSC server to receive messages.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">receive_port</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">OSCError</span><span class="p">(</span><span class="s2">&quot;Cannot start receiving: no receive_port specified&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_server</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;OSC server already running&quot;</span><span class="p">)</span>
+            <span class="k">return</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_server</span> <span class="o">=</span> <span class="n">osc_server</span><span class="o">.</span><span class="n">ThreadingOSCUDPServer</span><span class="p">(</span>
+                <span class="p">(</span><span class="n">DEFAULT_HOST</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">receive_port</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dispatcher</span>
+            <span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_server_thread</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">(</span>
+                <span class="n">target</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_server</span><span class="o">.</span><span class="n">serve_forever</span><span class="p">,</span> <span class="n">daemon</span><span class="o">=</span><span class="kc">True</span>
+            <span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_server_thread</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Started OSC server on port </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">receive_port</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">OSCError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Failed to start OSC server: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="OSCCommunicator.stop_receiving">
+<a class="viewcode-back" href="../../module_docs/antescofo/osc.html#antescofo.OSCCommunicator.stop_receiving">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">stop_receiving</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Stop the OSC server.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_server</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_server</span><span class="o">.</span><span class="n">shutdown</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_server</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_server_thread</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Stopped OSC server&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="OSCCommunicator.send">
+<a class="viewcode-back" href="../../module_docs/antescofo/osc.html#antescofo.OSCCommunicator.send">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">send</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">address</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Send an OSC message.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            address: OSC address pattern (e.g., &quot;/antescofo/tempo&quot;)</span>
+<span class="sd">            *args: Message arguments</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_client</span><span class="o">.</span><span class="n">send_message</span><span class="p">(</span><span class="n">address</span><span class="p">,</span> <span class="n">args</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">args</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="k">else</span> <span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">if</span> <span class="n">args</span> <span class="k">else</span> <span class="kc">None</span><span class="p">)</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Sent OSC message: </span><span class="si">{</span><span class="n">address</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">args</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">OSCError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Failed to send OSC message: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="OSCCommunicator.send_raw">
+<a class="viewcode-back" href="../../module_docs/antescofo/osc.html#antescofo.OSCCommunicator.send_raw">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">send_raw</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Send raw arguments without an address (for internal Antescofo commands).</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            *args: Message arguments (first arg typically the command name)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="c1"># For commands sent directly to the Antescofo object (not via OSC address)</span>
+            <span class="c1"># we send them as a simple message list</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_client</span><span class="o">.</span><span class="n">send_message</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="n">args</span><span class="p">))</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Sent raw message: </span><span class="si">{</span><span class="n">args</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">OSCError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Failed to send raw message: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="OSCCommunicator.subscribe">
+<a class="viewcode-back" href="../../module_docs/antescofo/osc.html#antescofo.OSCCommunicator.subscribe">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">subscribe</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">event_type</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">EventType</span><span class="p">],</span> <span class="n">handler</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">Event</span><span class="p">],</span> <span class="kc">None</span><span class="p">]</span>
+    <span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Subscribe to events.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            event_type: Type of event to subscribe to, or None for all events</span>
+<span class="sd">            handler: Callback function to handle events</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">event_dispatcher</span><span class="o">.</span><span class="n">subscribe</span><span class="p">(</span><span class="n">event_type</span><span class="p">,</span> <span class="n">handler</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="OSCCommunicator.unsubscribe">
+<a class="viewcode-back" href="../../module_docs/antescofo/osc.html#antescofo.OSCCommunicator.unsubscribe">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">unsubscribe</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">event_type</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">EventType</span><span class="p">],</span> <span class="n">handler</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">Event</span><span class="p">],</span> <span class="kc">None</span><span class="p">]</span>
+    <span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Unsubscribe from events.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            event_type: Type of event to unsubscribe from</span>
+<span class="sd">            handler: Handler to remove</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">event_dispatcher</span><span class="o">.</span><span class="n">unsubscribe</span><span class="p">(</span><span class="n">event_type</span><span class="p">,</span> <span class="n">handler</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="OSCCommunicator.close">
+<a class="viewcode-back" href="../../module_docs/antescofo/osc.html#antescofo.OSCCommunicator.close">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">close</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Close the communicator and clean up resources.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">stop_receiving</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">event_dispatcher</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;OSC Communicator closed&quot;</span><span class="p">)</span></div>
+
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__enter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Context manager entry.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">receive_port</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">start_receiving</span><span class="p">()</span>
+        <span class="k">return</span> <span class="bp">self</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__exit__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">exc_type</span><span class="p">,</span> <span class="n">exc_val</span><span class="p">,</span> <span class="n">exc_tb</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Context manager exit.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">close</span><span class="p">()</span></div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright NO COPYRIGHT.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

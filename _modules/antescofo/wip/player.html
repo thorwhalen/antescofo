@@ -1,0 +1,269 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>antescofo.wip.player &mdash; antescofo 0.1.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=4ae1632d" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=a58bc63e"></script>
+      <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../../../_static/toggleprompt.js?v=d7ede5d2"></script>
+      <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            antescofo
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../module_docs/antescofo.html">antescofo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../module_docs/antescofo/client.html">antescofo.client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../module_docs/antescofo/constants.html">antescofo.constants</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../module_docs/antescofo/events.html">antescofo.events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../module_docs/antescofo/exceptions.html">antescofo.exceptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../module_docs/antescofo/osc.html">antescofo.osc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../module_docs/antescofo/score.html">antescofo.score</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../module_docs/antescofo/simple_antescofo_score_generator.html">antescofo.simple_antescofo_score_generator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../module_docs/antescofo/types.html">antescofo.types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../module_docs/antescofo/util.html">antescofo.util</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../module_docs/antescofo/wip.html">antescofo.wip</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../module_docs/antescofo/wip/audio.html">antescofo.wip.audio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../module_docs/antescofo/wip/builder.html">antescofo.wip.builder</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../module_docs/antescofo/wip/events.html">antescofo.wip.events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../module_docs/antescofo/wip/player.html">antescofo.wip.player</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">antescofo</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">antescofo.wip.player</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for antescofo.wip.player</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Simple score player - Python-native alternative to Antescofo playback.</span>
+
+<span class="sd">This module provides a lightweight score playback engine that doesn&#39;t require</span>
+<span class="sd">Max/MSP, PureData, or external Antescofo installation. It focuses on timing</span>
+<span class="sd">and event triggering, delegating sound synthesis to callbacks.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Callable</span><span class="p">,</span> <span class="n">Iterator</span><span class="p">,</span> <span class="n">Optional</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">collections.abc</span><span class="w"> </span><span class="kn">import</span> <span class="n">Iterable</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">.events</span><span class="w"> </span><span class="kn">import</span> <span class="n">Event</span>
+
+
+<div class="viewcode-block" id="SimpleScorePlayer">
+<a class="viewcode-back" href="../../../module_docs/antescofo/wip/player.html#antescofo.wip.SimpleScorePlayer">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">SimpleScorePlayer</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Play Antescofo-style scores using Python callbacks.</span>
+
+<span class="sd">    This is a lightweight alternative that doesn&#39;t require Max/MSP or PureData.</span>
+<span class="sd">    Focuses on timing and event triggering, delegates sound synthesis to callbacks.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        score: List of Event objects to play</span>
+<span class="sd">        tempo: Playback tempo in beats per minute</span>
+<span class="sd">        sound_callback: Function called for each note event</span>
+<span class="sd">        action_callback: Function called for each action</span>
+
+<span class="sd">    Example:</span>
+<span class="sd">        &gt;&gt;&gt; from antescofo.wip import Event, SimpleScorePlayer</span>
+<span class="sd">        &gt;&gt;&gt; events = [</span>
+<span class="sd">        ...     Event(&quot;NOTE&quot;, 1.0, &quot;C4 60&quot;, [&#39;print &quot;C4&quot;&#39;]),</span>
+<span class="sd">        ...     Event(&quot;NOTE&quot;, 1.0, &quot;D4 62&quot;, [&#39;print &quot;D4&quot;&#39;]),</span>
+<span class="sd">        ... ]</span>
+<span class="sd">        &gt;&gt;&gt; player = SimpleScorePlayer(events, tempo=120)</span>
+<span class="sd">        &gt;&gt;&gt; # player.play()  # Would play in real-time</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">score</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">[</span><span class="n">Event</span><span class="p">],</span>
+        <span class="o">*</span><span class="p">,</span>
+        <span class="n">tempo</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">120</span><span class="p">,</span>
+        <span class="n">sound_callback</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Callable</span><span class="p">[[</span><span class="n">Event</span><span class="p">],</span> <span class="kc">None</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">action_callback</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Callable</span><span class="p">[[</span><span class="nb">str</span><span class="p">],</span> <span class="kc">None</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialize player.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            score: Iterable of Event objects</span>
+<span class="sd">            tempo: Beats per minute (default: 120)</span>
+<span class="sd">            sound_callback: Function called for each note event.</span>
+<span class="sd">                           If None, uses default print handler.</span>
+<span class="sd">            action_callback: Function called for each action.</span>
+<span class="sd">                            If None, uses default print handler.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">score</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">score</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tempo</span> <span class="o">=</span> <span class="n">tempo</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sound_callback</span> <span class="o">=</span> <span class="n">sound_callback</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">_default_sound</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">action_callback</span> <span class="o">=</span> <span class="n">action_callback</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">_default_action</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_beat_to_seconds</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">beats</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Convert beat duration to seconds based on tempo.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            beats: Duration in beats</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Duration in seconds</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">beats</span> <span class="o">*</span> <span class="mf">60.0</span><span class="p">)</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">tempo</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_default_sound</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="n">Event</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Default sound handler - just prints event info.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            event: The event to handle</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;🎵 </span><span class="si">{</span><span class="n">event</span><span class="o">.</span><span class="n">type</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">event</span><span class="o">.</span><span class="n">data</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_default_action</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">action</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Default action handler - just prints action code.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            action: The action code to execute</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;⚡ Action: </span><span class="si">{</span><span class="n">action</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<div class="viewcode-block" id="SimpleScorePlayer.play">
+<a class="viewcode-back" href="../../../module_docs/antescofo/wip/player.html#antescofo.wip.SimpleScorePlayer.play">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">play</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Play the score in real-time.</span>
+
+<span class="sd">        Iterates through events, triggers callbacks, and sleeps for correct duration.</span>
+<span class="sd">        This is a blocking operation that runs until the score completes.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;▶️  Playing score at </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">tempo</span><span class="si">}</span><span class="s2"> BPM...&quot;</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">event</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">score</span><span class="p">:</span>
+            <span class="c1"># Trigger sound</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">sound_callback</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
+
+            <span class="c1"># Execute actions</span>
+            <span class="k">for</span> <span class="n">action</span> <span class="ow">in</span> <span class="n">event</span><span class="o">.</span><span class="n">actions</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">action_callback</span><span class="p">(</span><span class="n">action</span><span class="p">)</span>
+
+            <span class="c1"># Wait for event duration</span>
+            <span class="n">duration_seconds</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_beat_to_seconds</span><span class="p">(</span><span class="n">event</span><span class="o">.</span><span class="n">duration</span><span class="p">)</span>
+            <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">duration_seconds</span><span class="p">)</span>
+
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;✅ Playback complete&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="SimpleScorePlayer.events">
+<a class="viewcode-back" href="../../../module_docs/antescofo/wip/player.html#antescofo.wip.SimpleScorePlayer.events">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">events</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="n">Event</span><span class="p">]]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Yield (timestamp, event) pairs for external scheduling.</span>
+
+<span class="sd">        Useful for integrating with other timing systems or for non-blocking playback.</span>
+
+<span class="sd">        Yields:</span>
+<span class="sd">            Tuples of (absolute_time_seconds, event)</span>
+
+<span class="sd">        Example:</span>
+<span class="sd">            &gt;&gt;&gt; from antescofo.wip import Event, SimpleScorePlayer</span>
+<span class="sd">            &gt;&gt;&gt; events = [Event(&quot;NOTE&quot;, 1.0, &quot;C4 60&quot;)]</span>
+<span class="sd">            &gt;&gt;&gt; player = SimpleScorePlayer(events, tempo=120)</span>
+<span class="sd">            &gt;&gt;&gt; list(player.events())  # doctest: +ELLIPSIS</span>
+<span class="sd">            [(0.0, Event(NOTE, 1.0s, &#39;C4 60&#39;))]</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">current_time</span> <span class="o">=</span> <span class="mf">0.0</span>
+        <span class="k">for</span> <span class="n">event</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">score</span><span class="p">:</span>
+            <span class="k">yield</span> <span class="p">(</span><span class="n">current_time</span><span class="p">,</span> <span class="n">event</span><span class="p">)</span>
+            <span class="n">current_time</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_beat_to_seconds</span><span class="p">(</span><span class="n">event</span><span class="o">.</span><span class="n">duration</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="SimpleScorePlayer.set_tempo">
+<a class="viewcode-back" href="../../../module_docs/antescofo/wip/player.html#antescofo.wip.SimpleScorePlayer.set_tempo">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">set_tempo</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tempo</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Change the playback tempo.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            tempo: New tempo in beats per minute</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tempo</span> <span class="o">=</span> <span class="n">tempo</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;🎵 Tempo set to: </span><span class="si">{</span><span class="n">tempo</span><span class="si">}</span><span class="s2"> BPM&quot;</span><span class="p">)</span></div>
+</div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright NO COPYRIGHT.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

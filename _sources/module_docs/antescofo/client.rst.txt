@@ -1,0 +1,4 @@
+antescofo.client
+================
+.. automodule:: antescofo.client
+   :members:

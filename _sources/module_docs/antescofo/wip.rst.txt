@@ -1,0 +1,4 @@
+antescofo.wip
+=============
+.. automodule:: antescofo.wip
+   :members:

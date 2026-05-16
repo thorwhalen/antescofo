@@ -1,0 +1,430 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>antescofo.score &mdash; antescofo 0.1.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css?v=4ae1632d" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=a58bc63e"></script>
+      <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../../_static/toggleprompt.js?v=d7ede5d2"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="antescofo.simple_antescofo_score_generator" href="simple_antescofo_score_generator.html" />
+    <link rel="prev" title="antescofo.osc" href="osc.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            antescofo
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../antescofo.html">antescofo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="client.html">antescofo.client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="constants.html">antescofo.constants</a></li>
+<li class="toctree-l1"><a class="reference internal" href="events.html">antescofo.events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exceptions.html">antescofo.exceptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="osc.html">antescofo.osc</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">antescofo.score</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#antescofo.score.ScoreBuilder"><code class="docutils literal notranslate"><span class="pre">ScoreBuilder</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#antescofo.score.ScoreBuilder.action"><code class="docutils literal notranslate"><span class="pre">ScoreBuilder.action()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#antescofo.score.ScoreBuilder.comment"><code class="docutils literal notranslate"><span class="pre">ScoreBuilder.comment()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#antescofo.score.ScoreBuilder.event"><code class="docutils literal notranslate"><span class="pre">ScoreBuilder.event()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#antescofo.score.ScoreBuilder.get_score"><code class="docutils literal notranslate"><span class="pre">ScoreBuilder.get_score()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#antescofo.score.ScoreBuilder.insert"><code class="docutils literal notranslate"><span class="pre">ScoreBuilder.insert()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#antescofo.score.ScoreBuilder.insert_once"><code class="docutils literal notranslate"><span class="pre">ScoreBuilder.insert_once()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#antescofo.score.ScoreBuilder.raw"><code class="docutils literal notranslate"><span class="pre">ScoreBuilder.raw()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#antescofo.score.ScoreBuilder.save"><code class="docutils literal notranslate"><span class="pre">ScoreBuilder.save()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#antescofo.score.ScoreFile"><code class="docutils literal notranslate"><span class="pre">ScoreFile</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#antescofo.score.ScoreFile.add_action"><code class="docutils literal notranslate"><span class="pre">ScoreFile.add_action()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#antescofo.score.ScoreFile.add_comment"><code class="docutils literal notranslate"><span class="pre">ScoreFile.add_comment()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#antescofo.score.ScoreFile.add_conditional"><code class="docutils literal notranslate"><span class="pre">ScoreFile.add_conditional()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#antescofo.score.ScoreFile.add_event"><code class="docutils literal notranslate"><span class="pre">ScoreFile.add_event()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#antescofo.score.ScoreFile.append"><code class="docutils literal notranslate"><span class="pre">ScoreFile.append()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#antescofo.score.ScoreFile.clear"><code class="docutils literal notranslate"><span class="pre">ScoreFile.clear()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#antescofo.score.ScoreFile.insert"><code class="docutils literal notranslate"><span class="pre">ScoreFile.insert()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#antescofo.score.ScoreFile.insert_file"><code class="docutils literal notranslate"><span class="pre">ScoreFile.insert_file()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#antescofo.score.ScoreFile.insert_file_once"><code class="docutils literal notranslate"><span class="pre">ScoreFile.insert_file_once()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#antescofo.score.ScoreFile.load"><code class="docutils literal notranslate"><span class="pre">ScoreFile.load()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#antescofo.score.ScoreFile.save"><code class="docutils literal notranslate"><span class="pre">ScoreFile.save()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="simple_antescofo_score_generator.html">antescofo.simple_antescofo_score_generator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="types.html">antescofo.types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="util.html">antescofo.util</a></li>
+<li class="toctree-l1"><a class="reference internal" href="wip.html">antescofo.wip</a></li>
+<li class="toctree-l1"><a class="reference internal" href="wip/audio.html">antescofo.wip.audio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="wip/builder.html">antescofo.wip.builder</a></li>
+<li class="toctree-l1"><a class="reference internal" href="wip/events.html">antescofo.wip.events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="wip/player.html">antescofo.wip.player</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">antescofo</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">antescofo.score</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/module_docs/antescofo/score.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-antescofo.score">
+<span id="antescofo-score"></span><h1>antescofo.score<a class="headerlink" href="#module-antescofo.score" title="Link to this heading"></a></h1>
+<p>Antescofo score file handling.</p>
+<p>Provides utilities for reading, writing, and manipulating Antescofo score files.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="antescofo.score.ScoreBuilder">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">antescofo.score.</span></span><span class="sig-name descname"><span class="pre">ScoreBuilder</span></span><a class="reference internal" href="../../_modules/antescofo/score.html#ScoreBuilder"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#antescofo.score.ScoreBuilder" title="Link to this definition"></a></dt>
+<dd><p>Builder pattern for constructing Antescofo scores programmatically.</p>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">builder</span> <span class="o">=</span> <span class="n">ScoreBuilder</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">builder</span><span class="o">.</span><span class="n">comment</span><span class="p">(</span><span class="s2">&quot;My Score&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">builder</span><span class="o">.</span><span class="n">event</span><span class="p">(</span><span class="s2">&quot;NOTE&quot;</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="s2">&quot;C4 60&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">builder</span><span class="o">.</span><span class="n">action</span><span class="p">(</span><span class="s2">&quot;print Hello&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">builder</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;myscore.asco.txt&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="antescofo.score.ScoreBuilder.action">
+<span class="sig-name descname"><span class="pre">action</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">action</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#antescofo.score.ScoreBuilder" title="antescofo.score.ScoreBuilder"><span class="pre">ScoreBuilder</span></a></span></span><a class="reference internal" href="../../_modules/antescofo/score.html#ScoreBuilder.action"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#antescofo.score.ScoreBuilder.action" title="Link to this definition"></a></dt>
+<dd><p>Add an action.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>action</strong> – Action code</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Self for chaining</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="antescofo.score.ScoreBuilder.comment">
+<span class="sig-name descname"><span class="pre">comment</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#antescofo.score.ScoreBuilder" title="antescofo.score.ScoreBuilder"><span class="pre">ScoreBuilder</span></a></span></span><a class="reference internal" href="../../_modules/antescofo/score.html#ScoreBuilder.comment"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#antescofo.score.ScoreBuilder.comment" title="Link to this definition"></a></dt>
+<dd><p>Add a comment.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>text</strong> – Comment text</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Self for chaining</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="antescofo.score.ScoreBuilder.event">
+<span class="sig-name descname"><span class="pre">event</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">duration</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">attributes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#antescofo.score.ScoreBuilder" title="antescofo.score.ScoreBuilder"><span class="pre">ScoreBuilder</span></a></span></span><a class="reference internal" href="../../_modules/antescofo/score.html#ScoreBuilder.event"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#antescofo.score.ScoreBuilder.event" title="Link to this definition"></a></dt>
+<dd><p>Add an event.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>event_type</strong> – Event type</p></li>
+<li><p><strong>duration</strong> – Duration</p></li>
+<li><p><strong>attributes</strong> – Attributes</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Self for chaining</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="antescofo.score.ScoreBuilder.get_score">
+<span class="sig-name descname"><span class="pre">get_score</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#antescofo.score.ScoreFile" title="antescofo.score.ScoreFile"><span class="pre">ScoreFile</span></a></span></span><a class="reference internal" href="../../_modules/antescofo/score.html#ScoreBuilder.get_score"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#antescofo.score.ScoreBuilder.get_score" title="Link to this definition"></a></dt>
+<dd><p>Get the built score.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The ScoreFile object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="antescofo.score.ScoreBuilder.insert">
+<span class="sig-name descname"><span class="pre">insert</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filepath</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Path</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#antescofo.score.ScoreBuilder" title="antescofo.score.ScoreBuilder"><span class="pre">ScoreBuilder</span></a></span></span><a class="reference internal" href="../../_modules/antescofo/score.html#ScoreBuilder.insert"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#antescofo.score.ScoreBuilder.insert" title="Link to this definition"></a></dt>
+<dd><p>Insert a file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>filepath</strong> – Path to insert</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Self for chaining</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="antescofo.score.ScoreBuilder.insert_once">
+<span class="sig-name descname"><span class="pre">insert_once</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filepath</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Path</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#antescofo.score.ScoreBuilder" title="antescofo.score.ScoreBuilder"><span class="pre">ScoreBuilder</span></a></span></span><a class="reference internal" href="../../_modules/antescofo/score.html#ScoreBuilder.insert_once"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#antescofo.score.ScoreBuilder.insert_once" title="Link to this definition"></a></dt>
+<dd><p>Insert a file once.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>filepath</strong> – Path to insert</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Self for chaining</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="antescofo.score.ScoreBuilder.raw">
+<span class="sig-name descname"><span class="pre">raw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">line</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#antescofo.score.ScoreBuilder" title="antescofo.score.ScoreBuilder"><span class="pre">ScoreBuilder</span></a></span></span><a class="reference internal" href="../../_modules/antescofo/score.html#ScoreBuilder.raw"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#antescofo.score.ScoreBuilder.raw" title="Link to this definition"></a></dt>
+<dd><p>Add a raw line.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>line</strong> – Line to add</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Self for chaining</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="antescofo.score.ScoreBuilder.save">
+<span class="sig-name descname"><span class="pre">save</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filepath</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Path</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/antescofo/score.html#ScoreBuilder.save"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#antescofo.score.ScoreBuilder.save" title="Link to this definition"></a></dt>
+<dd><p>Save the score to a file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>filepath</strong> – Path to save to</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="antescofo.score.ScoreFile">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">antescofo.score.</span></span><span class="sig-name descname"><span class="pre">ScoreFile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">content</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/antescofo/score.html#ScoreFile"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#antescofo.score.ScoreFile" title="Link to this definition"></a></dt>
+<dd><p>Represents an Antescofo score file.</p>
+<p>Provides methods to read, write, and manipulate score files.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="antescofo.score.ScoreFile.add_action">
+<span class="sig-name descname"><span class="pre">add_action</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">action</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/antescofo/score.html#ScoreFile.add_action"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#antescofo.score.ScoreFile.add_action" title="Link to this definition"></a></dt>
+<dd><p>Add an action to the score.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>action</strong> – Action code</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="antescofo.score.ScoreFile.add_comment">
+<span class="sig-name descname"><span class="pre">add_comment</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">comment</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/antescofo/score.html#ScoreFile.add_comment"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#antescofo.score.ScoreFile.add_comment" title="Link to this definition"></a></dt>
+<dd><p>Add a comment line.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>comment</strong> – Comment text (will be prefixed with ;)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="antescofo.score.ScoreFile.add_conditional">
+<span class="sig-name descname"><span class="pre">add_conditional</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">condition</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">if_block</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">else_block</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/antescofo/score.html#ScoreFile.add_conditional"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#antescofo.score.ScoreFile.add_conditional" title="Link to this definition"></a></dt>
+<dd><p>Add a conditional block.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>condition</strong> – Condition expression</p></li>
+<li><p><strong>if_block</strong> – Code to execute if condition is true</p></li>
+<li><p><strong>else_block</strong> – Optional code to execute if condition is false</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="antescofo.score.ScoreFile.add_event">
+<span class="sig-name descname"><span class="pre">add_event</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">duration</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">attributes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/antescofo/score.html#ScoreFile.add_event"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#antescofo.score.ScoreFile.add_event" title="Link to this definition"></a></dt>
+<dd><p>Add an event to the score.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>event_type</strong> – Type of event (e.g., “NOTE”, “CHORD”)</p></li>
+<li><p><strong>duration</strong> – Duration of the event</p></li>
+<li><p><strong>attributes</strong> – Additional attributes</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="antescofo.score.ScoreFile.append">
+<span class="sig-name descname"><span class="pre">append</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">line</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/antescofo/score.html#ScoreFile.append"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#antescofo.score.ScoreFile.append" title="Link to this definition"></a></dt>
+<dd><p>Append a line to the score.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>line</strong> – Line to append</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="antescofo.score.ScoreFile.clear">
+<span class="sig-name descname"><span class="pre">clear</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/antescofo/score.html#ScoreFile.clear"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#antescofo.score.ScoreFile.clear" title="Link to this definition"></a></dt>
+<dd><p>Clear the score content.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="antescofo.score.ScoreFile.insert">
+<span class="sig-name descname"><span class="pre">insert</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/antescofo/score.html#ScoreFile.insert"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#antescofo.score.ScoreFile.insert" title="Link to this definition"></a></dt>
+<dd><p>Insert a line at a specific position.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>index</strong> – Position to insert at</p></li>
+<li><p><strong>line</strong> – Line to insert</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="antescofo.score.ScoreFile.insert_file">
+<span class="sig-name descname"><span class="pre">insert_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filepath</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quote_if_spaces</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/antescofo/score.html#ScoreFile.insert_file"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#antescofo.score.ScoreFile.insert_file" title="Link to this definition"></a></dt>
+<dd><p>Insert a &#64;insert directive for another file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>filepath</strong> – Path to the file to insert</p></li>
+<li><p><strong>quote_if_spaces</strong> – Whether to quote the filepath if it contains spaces</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="antescofo.score.ScoreFile.insert_file_once">
+<span class="sig-name descname"><span class="pre">insert_file_once</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filepath</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quote_if_spaces</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/antescofo/score.html#ScoreFile.insert_file_once"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#antescofo.score.ScoreFile.insert_file_once" title="Link to this definition"></a></dt>
+<dd><p>Insert a &#64;insert_once directive for another file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>filepath</strong> – Path to the file to insert</p></li>
+<li><p><strong>quote_if_spaces</strong> – Whether to quote the filepath if it contains spaces</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="antescofo.score.ScoreFile.load">
+<span class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">load</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filepath</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Path</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#antescofo.score.ScoreFile" title="antescofo.score.ScoreFile"><span class="pre">ScoreFile</span></a></span></span><a class="reference internal" href="../../_modules/antescofo/score.html#ScoreFile.load"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#antescofo.score.ScoreFile.load" title="Link to this definition"></a></dt>
+<dd><p>Load a score file from disk.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>filepath</strong> – Path to the score file</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>ScoreFile object</p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="../antescofo.html#antescofo.ScoreError" title="antescofo.ScoreError"><strong>ScoreError</strong></a> – If the file cannot be read</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="antescofo.score.ScoreFile.save">
+<span class="sig-name descname"><span class="pre">save</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filepath</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Path</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/antescofo/score.html#ScoreFile.save"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#antescofo.score.ScoreFile.save" title="Link to this definition"></a></dt>
+<dd><p>Save the score to a file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>filepath</strong> – Path to save the score to</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="../antescofo.html#antescofo.ScoreError" title="antescofo.ScoreError"><strong>ScoreError</strong></a> – If the file cannot be written</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="osc.html" class="btn btn-neutral float-left" title="antescofo.osc" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="simple_antescofo_score_generator.html" class="btn btn-neutral float-right" title="antescofo.simple_antescofo_score_generator" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright NO COPYRIGHT.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

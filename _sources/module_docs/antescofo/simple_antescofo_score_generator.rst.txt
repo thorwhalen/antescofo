@@ -1,0 +1,4 @@
+antescofo.simple_antescofo_score_generator
+==========================================
+.. automodule:: antescofo.simple_antescofo_score_generator
+   :members:

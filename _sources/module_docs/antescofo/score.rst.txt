@@ -1,0 +1,4 @@
+antescofo.score
+===============
+.. automodule:: antescofo.score
+   :members:

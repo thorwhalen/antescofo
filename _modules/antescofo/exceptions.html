@@ -1,0 +1,177 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>antescofo.exceptions &mdash; antescofo 0.1.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css?v=4ae1632d" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=a58bc63e"></script>
+      <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../../_static/toggleprompt.js?v=d7ede5d2"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            antescofo
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../module_docs/antescofo.html">antescofo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../module_docs/antescofo/client.html">antescofo.client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../module_docs/antescofo/constants.html">antescofo.constants</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../module_docs/antescofo/events.html">antescofo.events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../module_docs/antescofo/exceptions.html">antescofo.exceptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../module_docs/antescofo/osc.html">antescofo.osc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../module_docs/antescofo/score.html">antescofo.score</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../module_docs/antescofo/simple_antescofo_score_generator.html">antescofo.simple_antescofo_score_generator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../module_docs/antescofo/types.html">antescofo.types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../module_docs/antescofo/util.html">antescofo.util</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../module_docs/antescofo/wip.html">antescofo.wip</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../module_docs/antescofo/wip/audio.html">antescofo.wip.audio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../module_docs/antescofo/wip/builder.html">antescofo.wip.builder</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../module_docs/antescofo/wip/events.html">antescofo.wip.events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../module_docs/antescofo/wip/player.html">antescofo.wip.player</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">antescofo</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">antescofo.exceptions</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for antescofo.exceptions</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Custom exceptions for the Antescofo Python interface.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+
+<div class="viewcode-block" id="AntescofoException">
+<a class="viewcode-back" href="../../module_docs/antescofo/exceptions.html#antescofo.AntescofoException">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">AntescofoException</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Base exception for all Antescofo-related errors.&quot;&quot;&quot;</span>
+
+    <span class="k">pass</span></div>
+
+
+
+<div class="viewcode-block" id="ConnectionError">
+<a class="viewcode-back" href="../../module_docs/antescofo/exceptions.html#antescofo.ConnectionError">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">ConnectionError</span><span class="p">(</span><span class="n">AntescofoException</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Raised when connection to Antescofo fails.&quot;&quot;&quot;</span>
+
+    <span class="k">pass</span></div>
+
+
+
+<div class="viewcode-block" id="OSCError">
+<a class="viewcode-back" href="../../module_docs/antescofo/exceptions.html#antescofo.OSCError">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">OSCError</span><span class="p">(</span><span class="n">AntescofoException</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Raised when OSC communication fails.&quot;&quot;&quot;</span>
+
+    <span class="k">pass</span></div>
+
+
+
+<div class="viewcode-block" id="ScoreError">
+<a class="viewcode-back" href="../../module_docs/antescofo/exceptions.html#antescofo.ScoreError">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">ScoreError</span><span class="p">(</span><span class="n">AntescofoException</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Raised when score file operations fail.&quot;&quot;&quot;</span>
+
+    <span class="k">pass</span></div>
+
+
+
+<div class="viewcode-block" id="TimeoutError">
+<a class="viewcode-back" href="../../module_docs/antescofo/exceptions.html#antescofo.TimeoutError">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">TimeoutError</span><span class="p">(</span><span class="n">AntescofoException</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Raised when an operation times out.&quot;&quot;&quot;</span>
+
+    <span class="k">pass</span></div>
+
+
+
+<div class="viewcode-block" id="InvalidMessageError">
+<a class="viewcode-back" href="../../module_docs/antescofo/exceptions.html#antescofo.InvalidMessageError">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">InvalidMessageError</span><span class="p">(</span><span class="n">AntescofoException</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Raised when an invalid OSC message is received.&quot;&quot;&quot;</span>
+
+    <span class="k">pass</span></div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright NO COPYRIGHT.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

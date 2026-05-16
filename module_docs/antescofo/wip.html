@@ -1,0 +1,533 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>antescofo.wip &mdash; antescofo 0.1.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css?v=4ae1632d" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=a58bc63e"></script>
+      <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../../_static/toggleprompt.js?v=d7ede5d2"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="antescofo.wip.audio" href="wip/audio.html" />
+    <link rel="prev" title="antescofo.util" href="util.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            antescofo
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../antescofo.html">antescofo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="client.html">antescofo.client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="constants.html">antescofo.constants</a></li>
+<li class="toctree-l1"><a class="reference internal" href="events.html">antescofo.events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exceptions.html">antescofo.exceptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="osc.html">antescofo.osc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="score.html">antescofo.score</a></li>
+<li class="toctree-l1"><a class="reference internal" href="simple_antescofo_score_generator.html">antescofo.simple_antescofo_score_generator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="types.html">antescofo.types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="util.html">antescofo.util</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">antescofo.wip</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#antescofo.wip.Event"><code class="docutils literal notranslate"><span class="pre">Event</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#antescofo.wip.Event.type"><code class="docutils literal notranslate"><span class="pre">Event.type</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#antescofo.wip.Event.duration"><code class="docutils literal notranslate"><span class="pre">Event.duration</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#antescofo.wip.Event.data"><code class="docutils literal notranslate"><span class="pre">Event.data</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#antescofo.wip.Event.actions"><code class="docutils literal notranslate"><span class="pre">Event.actions</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#antescofo.wip.PlayableScoreBuilder"><code class="docutils literal notranslate"><span class="pre">PlayableScoreBuilder</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#antescofo.wip.PlayableScoreBuilder.action"><code class="docutils literal notranslate"><span class="pre">PlayableScoreBuilder.action()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#antescofo.wip.PlayableScoreBuilder.build"><code class="docutils literal notranslate"><span class="pre">PlayableScoreBuilder.build()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#antescofo.wip.PlayableScoreBuilder.comment"><code class="docutils literal notranslate"><span class="pre">PlayableScoreBuilder.comment()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#antescofo.wip.PlayableScoreBuilder.event"><code class="docutils literal notranslate"><span class="pre">PlayableScoreBuilder.event()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#antescofo.wip.PlayableScoreBuilder.get_text"><code class="docutils literal notranslate"><span class="pre">PlayableScoreBuilder.get_text()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#antescofo.wip.PlayableScoreBuilder.raw"><code class="docutils literal notranslate"><span class="pre">PlayableScoreBuilder.raw()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#antescofo.wip.PlayableScoreBuilder.save"><code class="docutils literal notranslate"><span class="pre">PlayableScoreBuilder.save()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#antescofo.wip.SimpleScorePlayer"><code class="docutils literal notranslate"><span class="pre">SimpleScorePlayer</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#antescofo.wip.SimpleScorePlayer.score"><code class="docutils literal notranslate"><span class="pre">SimpleScorePlayer.score</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#antescofo.wip.SimpleScorePlayer.tempo"><code class="docutils literal notranslate"><span class="pre">SimpleScorePlayer.tempo</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#antescofo.wip.SimpleScorePlayer.sound_callback"><code class="docutils literal notranslate"><span class="pre">SimpleScorePlayer.sound_callback</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#antescofo.wip.SimpleScorePlayer.action_callback"><code class="docutils literal notranslate"><span class="pre">SimpleScorePlayer.action_callback</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#antescofo.wip.SimpleScorePlayer.events"><code class="docutils literal notranslate"><span class="pre">SimpleScorePlayer.events()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#antescofo.wip.SimpleScorePlayer.play"><code class="docutils literal notranslate"><span class="pre">SimpleScorePlayer.play()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#antescofo.wip.SimpleScorePlayer.set_tempo"><code class="docutils literal notranslate"><span class="pre">SimpleScorePlayer.set_tempo()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#antescofo.wip.create_custom_player"><code class="docutils literal notranslate"><span class="pre">create_custom_player()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#antescofo.wip.play_with_audio"><code class="docutils literal notranslate"><span class="pre">play_with_audio()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#antescofo.wip.play_with_midi"><code class="docutils literal notranslate"><span class="pre">play_with_midi()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="wip/audio.html">antescofo.wip.audio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="wip/builder.html">antescofo.wip.builder</a></li>
+<li class="toctree-l1"><a class="reference internal" href="wip/events.html">antescofo.wip.events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="wip/player.html">antescofo.wip.player</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">antescofo</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">antescofo.wip</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/module_docs/antescofo/wip.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-antescofo.wip">
+<span id="antescofo-wip"></span><h1>antescofo.wip<a class="headerlink" href="#module-antescofo.wip" title="Link to this heading"></a></h1>
+<p>WIP (Work In Progress) - Python-native Antescofo alternative.</p>
+<p>This package provides a lightweight, Python-only implementation for testing
+and experimentation without requiring Max/MSP, PureData, or external Antescofo.</p>
+<p>Use this for:
+- Development and testing
+- Simple playback scenarios
+- Apple Silicon compatibility
+- Learning and experimentation</p>
+<p>Use the main antescofo package (client.py) for:
+- Connecting to real Antescofo instances
+- Score following (live musician tracking)
+- Production performances</p>
+<dl>
+<dt>Basic usage:</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">antescofo.wip</span><span class="w"> </span><span class="kn">import</span> <span class="n">PlayableScoreBuilder</span><span class="p">,</span> <span class="n">SimpleScorePlayer</span>
+<span class="gp">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Build a score</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">score</span> <span class="o">=</span> <span class="p">(</span>
+<span class="gp">... </span>    <span class="n">PlayableScoreBuilder</span><span class="p">()</span>
+<span class="gp">... </span>    <span class="o">.</span><span class="n">comment</span><span class="p">(</span><span class="s2">&quot;Simple melody&quot;</span><span class="p">)</span>
+<span class="gp">... </span>    <span class="o">.</span><span class="n">event</span><span class="p">(</span><span class="s2">&quot;NOTE&quot;</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="s2">&quot;C4 60&quot;</span><span class="p">)</span>
+<span class="gp">... </span>    <span class="o">.</span><span class="n">event</span><span class="p">(</span><span class="s2">&quot;NOTE&quot;</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="s2">&quot;D4 62&quot;</span><span class="p">)</span>
+<span class="gp">... </span>    <span class="o">.</span><span class="n">event</span><span class="p">(</span><span class="s2">&quot;NOTE&quot;</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="s2">&quot;E4 64&quot;</span><span class="p">)</span>
+<span class="gp">... </span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Play it (prints events by default)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">player</span> <span class="o">=</span> <span class="n">SimpleScorePlayer</span><span class="p">(</span><span class="n">score</span><span class="p">,</span> <span class="n">tempo</span><span class="o">=</span><span class="mi">120</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># player.play()  # Uncomment to play</span>
+</pre></div>
+</div>
+</dd>
+<dt>Audio playback:</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">antescofo.wip</span><span class="w"> </span><span class="kn">import</span> <span class="n">play_with_audio</span><span class="p">,</span> <span class="n">play_with_midi</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># play_with_audio(score)  # Requires: pip install sounddevice numpy</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># play_with_midi(score)   # Requires: pip install python-rtmidi mido</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="antescofo.wip.Event">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">antescofo.wip.</span></span><span class="sig-name descname"><span class="pre">Event</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">duration</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">actions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">&lt;factory&gt;</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/antescofo/wip/events.html#Event"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#antescofo.wip.Event" title="Link to this definition"></a></dt>
+<dd><p>A musical event in a score.</p>
+<p>Represents a single event (note, chord, etc.) with associated actions.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="antescofo.wip.Event.type">
+<span class="sig-name descname"><span class="pre">type</span></span><a class="headerlink" href="#antescofo.wip.Event.type" title="Link to this definition"></a></dt>
+<dd><p>Event type (e.g., “NOTE”, “CHORD”)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="antescofo.wip.Event.duration">
+<span class="sig-name descname"><span class="pre">duration</span></span><a class="headerlink" href="#antescofo.wip.Event.duration" title="Link to this definition"></a></dt>
+<dd><p>Duration in beats</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="antescofo.wip.Event.data">
+<span class="sig-name descname"><span class="pre">data</span></span><a class="headerlink" href="#antescofo.wip.Event.data" title="Link to this definition"></a></dt>
+<dd><p>Event-specific data (e.g., “C4 60” for MIDI note)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="antescofo.wip.Event.actions">
+<span class="sig-name descname"><span class="pre">actions</span></span><a class="headerlink" href="#antescofo.wip.Event.actions" title="Link to this definition"></a></dt>
+<dd><p>List of actions to execute when event triggers</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list[str]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">event</span> <span class="o">=</span> <span class="n">Event</span><span class="p">(</span><span class="s2">&quot;NOTE&quot;</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="s2">&quot;C4 60&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;print &quot;Hello&quot;&#39;</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">event</span><span class="o">.</span><span class="n">type</span>
+<span class="go">&#39;NOTE&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">event</span><span class="o">.</span><span class="n">duration</span>
+<span class="go">1.0</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="antescofo.wip.PlayableScoreBuilder">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">antescofo.wip.</span></span><span class="sig-name descname"><span class="pre">PlayableScoreBuilder</span></span><a class="reference internal" href="../../_modules/antescofo/wip/builder.html#PlayableScoreBuilder"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#antescofo.wip.PlayableScoreBuilder" title="Link to this definition"></a></dt>
+<dd><p>Build Antescofo scores that can be played directly in Python.</p>
+<p>This builder creates both:
+1. Antescofo text format (for saving .asco files)
+2. Event objects (for SimpleScorePlayer)</p>
+<p>Can be used as a drop-in replacement for the original ScoreBuilder
+while adding playback capabilities.</p>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">builder</span> <span class="o">=</span> <span class="p">(</span>
+<span class="gp">... </span>    <span class="n">PlayableScoreBuilder</span><span class="p">()</span>
+<span class="gp">... </span>    <span class="o">.</span><span class="n">comment</span><span class="p">(</span><span class="s2">&quot;C Major Scale&quot;</span><span class="p">)</span>
+<span class="gp">... </span>    <span class="o">.</span><span class="n">event</span><span class="p">(</span><span class="s2">&quot;NOTE&quot;</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="s2">&quot;C4 60&quot;</span><span class="p">)</span>
+<span class="gp">... </span>    <span class="o">.</span><span class="n">action</span><span class="p">(</span><span class="s1">&#39;print &quot;C4&quot;&#39;</span><span class="p">)</span>
+<span class="gp">... </span>    <span class="o">.</span><span class="n">event</span><span class="p">(</span><span class="s2">&quot;NOTE&quot;</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="s2">&quot;D4 62&quot;</span><span class="p">)</span>
+<span class="gp">... </span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">events</span> <span class="o">=</span> <span class="n">builder</span><span class="o">.</span><span class="n">build</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">events</span><span class="p">)</span>
+<span class="go">2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">str</span><span class="p">(</span><span class="n">builder</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="go">&#39;; C Major Scale&#39;</span>
+</pre></div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="antescofo.wip.PlayableScoreBuilder.action">
+<span class="sig-name descname"><span class="pre">action</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">code</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="wip/builder.html#antescofo.wip.builder.PlayableScoreBuilder" title="antescofo.wip.builder.PlayableScoreBuilder"><span class="pre">PlayableScoreBuilder</span></a></span></span><a class="reference internal" href="../../_modules/antescofo/wip/builder.html#PlayableScoreBuilder.action"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#antescofo.wip.PlayableScoreBuilder.action" title="Link to this definition"></a></dt>
+<dd><p>Add an action to the last event.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>code</strong> – Antescofo action code to execute</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Self for method chaining</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="antescofo.wip.PlayableScoreBuilder.build">
+<span class="sig-name descname"><span class="pre">build</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="wip/events.html#antescofo.wip.events.Event" title="antescofo.wip.events.Event"><span class="pre">Event</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../../_modules/antescofo/wip/builder.html#PlayableScoreBuilder.build"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#antescofo.wip.PlayableScoreBuilder.build" title="Link to this definition"></a></dt>
+<dd><p>Build and return the list of Event objects for playback.</p>
+<p>Finalizes the score and returns Event objects ready for SimpleScorePlayer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>List of Event objects</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="antescofo.wip.PlayableScoreBuilder.comment">
+<span class="sig-name descname"><span class="pre">comment</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="wip/builder.html#antescofo.wip.builder.PlayableScoreBuilder" title="antescofo.wip.builder.PlayableScoreBuilder"><span class="pre">PlayableScoreBuilder</span></a></span></span><a class="reference internal" href="../../_modules/antescofo/wip/builder.html#PlayableScoreBuilder.comment"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#antescofo.wip.PlayableScoreBuilder.comment" title="Link to this definition"></a></dt>
+<dd><p>Add a comment line.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>text</strong> – Comment text (will be prefixed with ‘;’)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Self for method chaining</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="antescofo.wip.PlayableScoreBuilder.event">
+<span class="sig-name descname"><span class="pre">event</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">duration</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="wip/builder.html#antescofo.wip.builder.PlayableScoreBuilder" title="antescofo.wip.builder.PlayableScoreBuilder"><span class="pre">PlayableScoreBuilder</span></a></span></span><a class="reference internal" href="../../_modules/antescofo/wip/builder.html#PlayableScoreBuilder.event"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#antescofo.wip.PlayableScoreBuilder.event" title="Link to this definition"></a></dt>
+<dd><p>Add an event (note, chord, etc.).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>event_type</strong> – Type of event (e.g., “NOTE”, “CHORD”)</p></li>
+<li><p><strong>duration</strong> – Duration in beats</p></li>
+<li><p><strong>data</strong> – Event data (e.g., “C4 60” for MIDI note)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Self for method chaining</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="antescofo.wip.PlayableScoreBuilder.get_text">
+<span class="sig-name descname"><span class="pre">get_text</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="../../_modules/antescofo/wip/builder.html#PlayableScoreBuilder.get_text"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#antescofo.wip.PlayableScoreBuilder.get_text" title="Link to this definition"></a></dt>
+<dd><p>Get the Antescofo script text.</p>
+<p>Alias for __str__() for clarity.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Complete Antescofo script as string</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="antescofo.wip.PlayableScoreBuilder.raw">
+<span class="sig-name descname"><span class="pre">raw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">line</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="wip/builder.html#antescofo.wip.builder.PlayableScoreBuilder" title="antescofo.wip.builder.PlayableScoreBuilder"><span class="pre">PlayableScoreBuilder</span></a></span></span><a class="reference internal" href="../../_modules/antescofo/wip/builder.html#PlayableScoreBuilder.raw"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#antescofo.wip.PlayableScoreBuilder.raw" title="Link to this definition"></a></dt>
+<dd><p>Add a raw Antescofo script line.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>line</strong> – Raw line to add (variable definitions, functions, etc.)</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Self for method chaining</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="antescofo.wip.PlayableScoreBuilder.save">
+<span class="sig-name descname"><span class="pre">save</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filepath</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Path</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../../_modules/antescofo/wip/builder.html#PlayableScoreBuilder.save"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#antescofo.wip.PlayableScoreBuilder.save" title="Link to this definition"></a></dt>
+<dd><p>Save score to Antescofo text file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>filepath</strong> – Path to save the .asco.txt file</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="antescofo.wip.SimpleScorePlayer">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">antescofo.wip.</span></span><span class="sig-name descname"><span class="pre">SimpleScorePlayer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">score</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Iterable</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="wip/events.html#antescofo.wip.events.Event" title="antescofo.wip.events.Event"><span class="pre">Event</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">tempo</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">120</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sound_callback</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="wip/events.html#antescofo.wip.events.Event" title="antescofo.wip.events.Event"><span class="pre">Event</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">action_callback</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/antescofo/wip/player.html#SimpleScorePlayer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#antescofo.wip.SimpleScorePlayer" title="Link to this definition"></a></dt>
+<dd><p>Play Antescofo-style scores using Python callbacks.</p>
+<p>This is a lightweight alternative that doesn’t require Max/MSP or PureData.
+Focuses on timing and event triggering, delegates sound synthesis to callbacks.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="antescofo.wip.SimpleScorePlayer.score">
+<span class="sig-name descname"><span class="pre">score</span></span><a class="headerlink" href="#antescofo.wip.SimpleScorePlayer.score" title="Link to this definition"></a></dt>
+<dd><p>List of Event objects to play</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="antescofo.wip.SimpleScorePlayer.tempo">
+<span class="sig-name descname"><span class="pre">tempo</span></span><a class="headerlink" href="#antescofo.wip.SimpleScorePlayer.tempo" title="Link to this definition"></a></dt>
+<dd><p>Playback tempo in beats per minute</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="antescofo.wip.SimpleScorePlayer.sound_callback">
+<span class="sig-name descname"><span class="pre">sound_callback</span></span><a class="headerlink" href="#antescofo.wip.SimpleScorePlayer.sound_callback" title="Link to this definition"></a></dt>
+<dd><p>Function called for each note event</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="antescofo.wip.SimpleScorePlayer.action_callback">
+<span class="sig-name descname"><span class="pre">action_callback</span></span><a class="headerlink" href="#antescofo.wip.SimpleScorePlayer.action_callback" title="Link to this definition"></a></dt>
+<dd><p>Function called for each action</p>
+</dd></dl>
+
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">antescofo.wip</span><span class="w"> </span><span class="kn">import</span> <span class="n">Event</span><span class="p">,</span> <span class="n">SimpleScorePlayer</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">events</span> <span class="o">=</span> <span class="p">[</span>
+<span class="gp">... </span>    <span class="n">Event</span><span class="p">(</span><span class="s2">&quot;NOTE&quot;</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="s2">&quot;C4 60&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;print &quot;C4&quot;&#39;</span><span class="p">]),</span>
+<span class="gp">... </span>    <span class="n">Event</span><span class="p">(</span><span class="s2">&quot;NOTE&quot;</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="s2">&quot;D4 62&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;print &quot;D4&quot;&#39;</span><span class="p">]),</span>
+<span class="gp">... </span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">player</span> <span class="o">=</span> <span class="n">SimpleScorePlayer</span><span class="p">(</span><span class="n">events</span><span class="p">,</span> <span class="n">tempo</span><span class="o">=</span><span class="mi">120</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># player.play()  # Would play in real-time</span>
+</pre></div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="antescofo.wip.SimpleScorePlayer.events">
+<span class="sig-name descname"><span class="pre">events</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Iterator</span><span class="p"><span class="pre">[</span></span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="wip/events.html#antescofo.wip.events.Event" title="antescofo.wip.events.Event"><span class="pre">Event</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../../_modules/antescofo/wip/player.html#SimpleScorePlayer.events"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#antescofo.wip.SimpleScorePlayer.events" title="Link to this definition"></a></dt>
+<dd><p>Yield (timestamp, event) pairs for external scheduling.</p>
+<p>Useful for integrating with other timing systems or for non-blocking playback.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Yields<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Tuples of (absolute_time_seconds, event)</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">antescofo.wip</span><span class="w"> </span><span class="kn">import</span> <span class="n">Event</span><span class="p">,</span> <span class="n">SimpleScorePlayer</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">events</span> <span class="o">=</span> <span class="p">[</span><span class="n">Event</span><span class="p">(</span><span class="s2">&quot;NOTE&quot;</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="s2">&quot;C4 60&quot;</span><span class="p">)]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">player</span> <span class="o">=</span> <span class="n">SimpleScorePlayer</span><span class="p">(</span><span class="n">events</span><span class="p">,</span> <span class="n">tempo</span><span class="o">=</span><span class="mi">120</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">list</span><span class="p">(</span><span class="n">player</span><span class="o">.</span><span class="n">events</span><span class="p">())</span>
+<span class="go">[(0.0, Event(NOTE, 1.0s, &#39;C4 60&#39;))]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="antescofo.wip.SimpleScorePlayer.play">
+<span class="sig-name descname"><span class="pre">play</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../../_modules/antescofo/wip/player.html#SimpleScorePlayer.play"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#antescofo.wip.SimpleScorePlayer.play" title="Link to this definition"></a></dt>
+<dd><p>Play the score in real-time.</p>
+<p>Iterates through events, triggers callbacks, and sleeps for correct duration.
+This is a blocking operation that runs until the score completes.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="antescofo.wip.SimpleScorePlayer.set_tempo">
+<span class="sig-name descname"><span class="pre">set_tempo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tempo</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../../_modules/antescofo/wip/player.html#SimpleScorePlayer.set_tempo"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#antescofo.wip.SimpleScorePlayer.set_tempo" title="Link to this definition"></a></dt>
+<dd><p>Change the playback tempo.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>tempo</strong> – New tempo in beats per minute</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="antescofo.wip.create_custom_player">
+<span class="sig-prename descclassname"><span class="pre">antescofo.wip.</span></span><span class="sig-name descname"><span class="pre">create_custom_player</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">score</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Iterable</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="wip/events.html#antescofo.wip.events.Event" title="antescofo.wip.events.Event"><span class="pre">Event</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">tempo</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">120</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">on_note</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">callable</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">on_action</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">callable</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="wip/player.html#antescofo.wip.player.SimpleScorePlayer" title="antescofo.wip.player.SimpleScorePlayer"><span class="pre">SimpleScorePlayer</span></a></span></span><a class="reference internal" href="../../_modules/antescofo/wip/audio.html#create_custom_player"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#antescofo.wip.create_custom_player" title="Link to this definition"></a></dt>
+<dd><p>Create a player with custom callbacks.</p>
+<p>Use this to integrate with your own synthesis or control systems.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>score</strong> – Iterable of Event objects</p></li>
+<li><p><strong>tempo</strong> – Playback tempo in BPM</p></li>
+<li><p><strong>on_note</strong> – Callback for note events (receives Event object)</p></li>
+<li><p><strong>on_action</strong> – Callback for actions (receives action string)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Configured SimpleScorePlayer instance</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">antescofo.wip</span><span class="w"> </span><span class="kn">import</span> <span class="n">Event</span><span class="p">,</span> <span class="n">create_custom_player</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">def</span><span class="w"> </span><span class="nf">my_synth</span><span class="p">(</span><span class="n">event</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Custom synth: </span><span class="si">{</span><span class="n">event</span><span class="o">.</span><span class="n">data</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">score</span> <span class="o">=</span> <span class="p">[</span><span class="n">Event</span><span class="p">(</span><span class="s2">&quot;NOTE&quot;</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="s2">&quot;C4 60&quot;</span><span class="p">)]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">player</span> <span class="o">=</span> <span class="n">create_custom_player</span><span class="p">(</span><span class="n">score</span><span class="p">,</span> <span class="n">on_note</span><span class="o">=</span><span class="n">my_synth</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># player.play()  # Would use custom callback</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="antescofo.wip.play_with_audio">
+<span class="sig-prename descclassname"><span class="pre">antescofo.wip.</span></span><span class="sig-name descname"><span class="pre">play_with_audio</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">score</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Iterable</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="wip/events.html#antescofo.wip.events.Event" title="antescofo.wip.events.Event"><span class="pre">Event</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">tempo</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">120</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_rate</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">44100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">volume</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.3</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../../_modules/antescofo/wip/audio.html#play_with_audio"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#antescofo.wip.play_with_audio" title="Link to this definition"></a></dt>
+<dd><p>Play score with simple synthesized audio.</p>
+<p>Uses sine wave synthesis for a basic but functional audio output.
+Requires: pip install sounddevice numpy</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>score</strong> – Iterable of Event objects</p></li>
+<li><p><strong>tempo</strong> – Playback tempo in BPM</p></li>
+<li><p><strong>sample_rate</strong> – Audio sample rate in Hz</p></li>
+<li><p><strong>volume</strong> – Playback volume (0.0 to 1.0)</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">antescofo.wip</span><span class="w"> </span><span class="kn">import</span> <span class="n">Event</span><span class="p">,</span> <span class="n">play_with_audio</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">score</span> <span class="o">=</span> <span class="p">[</span><span class="n">Event</span><span class="p">(</span><span class="s2">&quot;NOTE&quot;</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="s2">&quot;C4 60&quot;</span><span class="p">)]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># play_with_audio(score)  # Would play synthesized audio</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="antescofo.wip.play_with_midi">
+<span class="sig-prename descclassname"><span class="pre">antescofo.wip.</span></span><span class="sig-name descname"><span class="pre">play_with_midi</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">score</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Iterable</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="wip/events.html#antescofo.wip.events.Event" title="antescofo.wip.events.Event"><span class="pre">Event</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">tempo</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">120</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">port_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../../_modules/antescofo/wip/audio.html#play_with_midi"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#antescofo.wip.play_with_midi" title="Link to this definition"></a></dt>
+<dd><p>Play score using MIDI output.</p>
+<p>Requires: pip install python-rtmidi mido</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>score</strong> – Iterable of Event objects</p></li>
+<li><p><strong>tempo</strong> – Playback tempo in BPM</p></li>
+<li><p><strong>port_name</strong> – Name of MIDI port to use (None for default)</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">antescofo.wip</span><span class="w"> </span><span class="kn">import</span> <span class="n">Event</span><span class="p">,</span> <span class="n">play_with_midi</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">score</span> <span class="o">=</span> <span class="p">[</span><span class="n">Event</span><span class="p">(</span><span class="s2">&quot;NOTE&quot;</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="s2">&quot;C4 60&quot;</span><span class="p">)]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># play_with_midi(score)  # Would play via MIDI</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="util.html" class="btn btn-neutral float-left" title="antescofo.util" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="wip/audio.html" class="btn btn-neutral float-right" title="antescofo.wip.audio" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright NO COPYRIGHT.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

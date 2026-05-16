@@ -1,0 +1,214 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>antescofo.wip.audio &mdash; antescofo 0.1.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=4ae1632d" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=a58bc63e"></script>
+      <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../../../_static/toggleprompt.js?v=d7ede5d2"></script>
+      <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="antescofo.wip.builder" href="builder.html" />
+    <link rel="prev" title="antescofo.wip" href="../wip.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            antescofo
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../antescofo.html">antescofo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../client.html">antescofo.client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../constants.html">antescofo.constants</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../events.html">antescofo.events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exceptions.html">antescofo.exceptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../osc.html">antescofo.osc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../score.html">antescofo.score</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../simple_antescofo_score_generator.html">antescofo.simple_antescofo_score_generator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../types.html">antescofo.types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../util.html">antescofo.util</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../wip.html">antescofo.wip</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">antescofo.wip.audio</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#antescofo.wip.audio.create_custom_player"><code class="docutils literal notranslate"><span class="pre">create_custom_player()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#antescofo.wip.audio.play_with_audio"><code class="docutils literal notranslate"><span class="pre">play_with_audio()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#antescofo.wip.audio.play_with_midi"><code class="docutils literal notranslate"><span class="pre">play_with_midi()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="builder.html">antescofo.wip.builder</a></li>
+<li class="toctree-l1"><a class="reference internal" href="events.html">antescofo.wip.events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="player.html">antescofo.wip.player</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">antescofo</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">antescofo.wip.audio</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/module_docs/antescofo/wip/audio.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-antescofo.wip.audio">
+<span id="antescofo-wip-audio"></span><h1>antescofo.wip.audio<a class="headerlink" href="#module-antescofo.wip.audio" title="Link to this heading"></a></h1>
+<p>Audio playback backends for SimpleScorePlayer.</p>
+<p>This module provides various audio output options:
+- MIDI output
+- Synthesized audio (sine waves)
+- External synthesis hooks</p>
+<p>Each function creates a SimpleScorePlayer configured with the appropriate callbacks.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="antescofo.wip.audio.create_custom_player">
+<span class="sig-prename descclassname"><span class="pre">antescofo.wip.audio.</span></span><span class="sig-name descname"><span class="pre">create_custom_player</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">score</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Iterable</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="events.html#antescofo.wip.events.Event" title="antescofo.wip.events.Event"><span class="pre">Event</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">tempo</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">120</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">on_note</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">callable</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">on_action</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">callable</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="player.html#antescofo.wip.player.SimpleScorePlayer" title="antescofo.wip.player.SimpleScorePlayer"><span class="pre">SimpleScorePlayer</span></a></span></span><a class="reference internal" href="../../../_modules/antescofo/wip/audio.html#create_custom_player"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#antescofo.wip.audio.create_custom_player" title="Link to this definition"></a></dt>
+<dd><p>Create a player with custom callbacks.</p>
+<p>Use this to integrate with your own synthesis or control systems.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>score</strong> – Iterable of Event objects</p></li>
+<li><p><strong>tempo</strong> – Playback tempo in BPM</p></li>
+<li><p><strong>on_note</strong> – Callback for note events (receives Event object)</p></li>
+<li><p><strong>on_action</strong> – Callback for actions (receives action string)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Configured SimpleScorePlayer instance</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">antescofo.wip</span><span class="w"> </span><span class="kn">import</span> <span class="n">Event</span><span class="p">,</span> <span class="n">create_custom_player</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">def</span><span class="w"> </span><span class="nf">my_synth</span><span class="p">(</span><span class="n">event</span><span class="p">):</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Custom synth: </span><span class="si">{</span><span class="n">event</span><span class="o">.</span><span class="n">data</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">score</span> <span class="o">=</span> <span class="p">[</span><span class="n">Event</span><span class="p">(</span><span class="s2">&quot;NOTE&quot;</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="s2">&quot;C4 60&quot;</span><span class="p">)]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">player</span> <span class="o">=</span> <span class="n">create_custom_player</span><span class="p">(</span><span class="n">score</span><span class="p">,</span> <span class="n">on_note</span><span class="o">=</span><span class="n">my_synth</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># player.play()  # Would use custom callback</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="antescofo.wip.audio.play_with_audio">
+<span class="sig-prename descclassname"><span class="pre">antescofo.wip.audio.</span></span><span class="sig-name descname"><span class="pre">play_with_audio</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">score</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Iterable</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="events.html#antescofo.wip.events.Event" title="antescofo.wip.events.Event"><span class="pre">Event</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">tempo</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">120</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_rate</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">44100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">volume</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.3</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../../../_modules/antescofo/wip/audio.html#play_with_audio"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#antescofo.wip.audio.play_with_audio" title="Link to this definition"></a></dt>
+<dd><p>Play score with simple synthesized audio.</p>
+<p>Uses sine wave synthesis for a basic but functional audio output.
+Requires: pip install sounddevice numpy</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>score</strong> – Iterable of Event objects</p></li>
+<li><p><strong>tempo</strong> – Playback tempo in BPM</p></li>
+<li><p><strong>sample_rate</strong> – Audio sample rate in Hz</p></li>
+<li><p><strong>volume</strong> – Playback volume (0.0 to 1.0)</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">antescofo.wip</span><span class="w"> </span><span class="kn">import</span> <span class="n">Event</span><span class="p">,</span> <span class="n">play_with_audio</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">score</span> <span class="o">=</span> <span class="p">[</span><span class="n">Event</span><span class="p">(</span><span class="s2">&quot;NOTE&quot;</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="s2">&quot;C4 60&quot;</span><span class="p">)]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># play_with_audio(score)  # Would play synthesized audio</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="antescofo.wip.audio.play_with_midi">
+<span class="sig-prename descclassname"><span class="pre">antescofo.wip.audio.</span></span><span class="sig-name descname"><span class="pre">play_with_midi</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">score</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Iterable</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="events.html#antescofo.wip.events.Event" title="antescofo.wip.events.Event"><span class="pre">Event</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">tempo</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">120</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">port_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../../../_modules/antescofo/wip/audio.html#play_with_midi"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#antescofo.wip.audio.play_with_midi" title="Link to this definition"></a></dt>
+<dd><p>Play score using MIDI output.</p>
+<p>Requires: pip install python-rtmidi mido</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>score</strong> – Iterable of Event objects</p></li>
+<li><p><strong>tempo</strong> – Playback tempo in BPM</p></li>
+<li><p><strong>port_name</strong> – Name of MIDI port to use (None for default)</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">antescofo.wip</span><span class="w"> </span><span class="kn">import</span> <span class="n">Event</span><span class="p">,</span> <span class="n">play_with_midi</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">score</span> <span class="o">=</span> <span class="p">[</span><span class="n">Event</span><span class="p">(</span><span class="s2">&quot;NOTE&quot;</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="s2">&quot;C4 60&quot;</span><span class="p">)]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># play_with_midi(score)  # Would play via MIDI</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../wip.html" class="btn btn-neutral float-left" title="antescofo.wip" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="builder.html" class="btn btn-neutral float-right" title="antescofo.wip.builder" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright NO COPYRIGHT.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

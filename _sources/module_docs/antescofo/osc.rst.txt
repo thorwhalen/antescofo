@@ -1,0 +1,4 @@
+antescofo.osc
+=============
+.. automodule:: antescofo.osc
+   :members:

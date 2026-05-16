@@ -1,0 +1,375 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>antescofo.util &mdash; antescofo 0.1.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css?v=4ae1632d" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=a58bc63e"></script>
+      <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../../_static/toggleprompt.js?v=d7ede5d2"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            antescofo
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../module_docs/antescofo.html">antescofo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../module_docs/antescofo/client.html">antescofo.client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../module_docs/antescofo/constants.html">antescofo.constants</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../module_docs/antescofo/events.html">antescofo.events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../module_docs/antescofo/exceptions.html">antescofo.exceptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../module_docs/antescofo/osc.html">antescofo.osc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../module_docs/antescofo/score.html">antescofo.score</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../module_docs/antescofo/simple_antescofo_score_generator.html">antescofo.simple_antescofo_score_generator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../module_docs/antescofo/types.html">antescofo.types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../module_docs/antescofo/util.html">antescofo.util</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../module_docs/antescofo/wip.html">antescofo.wip</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../module_docs/antescofo/wip/audio.html">antescofo.wip.audio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../module_docs/antescofo/wip/builder.html">antescofo.wip.builder</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../module_docs/antescofo/wip/events.html">antescofo.wip.events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../module_docs/antescofo/wip/player.html">antescofo.wip.player</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">antescofo</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">antescofo.util</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for antescofo.util</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Configuration management and utilities for Antescofo.</span>
+
+<span class="sd">Handles user config files in ~/.config/antescofo and provides path resolution.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Optional</span>
+
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+<span class="c1"># User configuration directory</span>
+<span class="n">CONFIG_DIR</span> <span class="o">=</span> <span class="n">Path</span><span class="o">.</span><span class="n">home</span><span class="p">()</span> <span class="o">/</span> <span class="s2">&quot;.config&quot;</span> <span class="o">/</span> <span class="s2">&quot;antescofo&quot;</span>
+<span class="n">CONFIG_FILE</span> <span class="o">=</span> <span class="n">CONFIG_DIR</span> <span class="o">/</span> <span class="s2">&quot;config.json&quot;</span>
+
+<span class="c1"># Default configuration values</span>
+<span class="n">_DEFAULT_CONFIG</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;antescofo_send_port&quot;</span><span class="p">:</span> <span class="mi">5678</span><span class="p">,</span>
+    <span class="s2">&quot;python_receive_port&quot;</span><span class="p">:</span> <span class="mi">9999</span><span class="p">,</span>
+    <span class="s2">&quot;pd_listen_port&quot;</span><span class="p">:</span> <span class="mi">10000</span><span class="p">,</span>  <span class="c1"># Port where PD synth listens for OSC</span>
+    <span class="s2">&quot;pd_patch_path&quot;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>  <span class="c1"># User should set this</span>
+    <span class="s2">&quot;antescofo_external_path&quot;</span><span class="p">:</span> <span class="s2">&quot;/Applications/Pd-0.56-2.app/Contents/Resources/extra/&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;default_score_dir&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">Path</span><span class="o">.</span><span class="n">home</span><span class="p">()</span> <span class="o">/</span> <span class="s2">&quot;Music&quot;</span> <span class="o">/</span> <span class="s2">&quot;antescofo_scores&quot;</span><span class="p">),</span>
+    <span class="s2">&quot;enable_logging&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="s2">&quot;log_level&quot;</span><span class="p">:</span> <span class="s2">&quot;INFO&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="c1"># Cached config</span>
+<span class="n">_cached_config</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span>
+
+
+<div class="viewcode-block" id="ensure_config_dir">
+<a class="viewcode-back" href="../../module_docs/antescofo/util.html#antescofo.ensure_config_dir">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">ensure_config_dir</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">Path</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Ensure the configuration directory exists.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Path to the configuration directory</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">CONFIG_DIR</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">CONFIG_DIR</span></div>
+
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_get_default_pd_patch_path</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Find the default PD patch path in the package.&quot;&quot;&quot;</span>
+    <span class="c1"># Try to find the pd_synth_patch.pd in the package</span>
+    <span class="n">package_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span><span class="o">.</span><span class="n">parent</span>
+    <span class="n">pd_patch</span> <span class="o">=</span> <span class="n">package_dir</span> <span class="o">/</span> <span class="s2">&quot;pd_synth_patch.pd&quot;</span>
+    <span class="k">if</span> <span class="n">pd_patch</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+        <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">pd_patch</span><span class="p">)</span>
+    <span class="k">return</span> <span class="s2">&quot;&quot;</span>
+
+
+<div class="viewcode-block" id="init_config">
+<a class="viewcode-back" href="../../module_docs/antescofo/util.html#antescofo.init_config">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">init_config</span><span class="p">(</span><span class="n">force</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Path</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Initialize user configuration with defaults.</span>
+
+<span class="sd">    Creates ~/.config/antescofo/config.json with default settings.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        force: If True, overwrite existing config</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Path to the config file</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">ensure_config_dir</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="n">CONFIG_FILE</span><span class="o">.</span><span class="n">exists</span><span class="p">()</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">force</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Config already exists at </span><span class="si">{</span><span class="n">CONFIG_FILE</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">CONFIG_FILE</span>
+
+    <span class="c1"># Create default config with user-specific paths</span>
+    <span class="n">config</span> <span class="o">=</span> <span class="n">_DEFAULT_CONFIG</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="n">config</span><span class="p">[</span><span class="s2">&quot;pd_patch_path&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">_get_default_pd_patch_path</span><span class="p">()</span>
+
+    <span class="c1"># Save config</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">CONFIG_FILE</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Created config file at </span><span class="si">{</span><span class="n">CONFIG_FILE</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">CONFIG_FILE</span></div>
+
+
+
+<div class="viewcode-block" id="load_config">
+<a class="viewcode-back" href="../../module_docs/antescofo/util.html#antescofo.load_config">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">load_config</span><span class="p">(</span><span class="n">reload</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Load user configuration.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        reload: If True, bypass cache and reload from disk</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Configuration dictionary</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">global</span> <span class="n">_cached_config</span>
+
+    <span class="k">if</span> <span class="n">_cached_config</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">reload</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">_cached_config</span>
+
+    <span class="c1"># Ensure config exists</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">CONFIG_FILE</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+        <span class="n">init_config</span><span class="p">()</span>
+
+    <span class="c1"># Load config</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">CONFIG_FILE</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="n">config</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+
+        <span class="c1"># Merge with defaults (in case new keys were added)</span>
+        <span class="n">merged</span> <span class="o">=</span> <span class="n">_DEFAULT_CONFIG</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="n">merged</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
+
+        <span class="n">_cached_config</span> <span class="o">=</span> <span class="n">merged</span>
+        <span class="k">return</span> <span class="n">merged</span>
+
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Failed to load config: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">. Using defaults.&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">_DEFAULT_CONFIG</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span></div>
+
+
+
+<div class="viewcode-block" id="save_config">
+<a class="viewcode-back" href="../../module_docs/antescofo/util.html#antescofo.save_config">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">save_config</span><span class="p">(</span><span class="n">config</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Save configuration to file.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        config: Configuration dictionary to save</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">global</span> <span class="n">_cached_config</span>
+    <span class="n">ensure_config_dir</span><span class="p">()</span>
+
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">CONFIG_FILE</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+    <span class="n">_cached_config</span> <span class="o">=</span> <span class="n">config</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Saved config to </span><span class="si">{</span><span class="n">CONFIG_FILE</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="get_config_value">
+<a class="viewcode-back" href="../../module_docs/antescofo/util.html#antescofo.get_config_value">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_config_value</span><span class="p">(</span><span class="n">key</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">default</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Get a specific configuration value.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        key: Configuration key</span>
+<span class="sd">        default: Default value if key not found</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Configuration value</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">config</span> <span class="o">=</span> <span class="n">load_config</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">default</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="set_config_value">
+<a class="viewcode-back" href="../../module_docs/antescofo/util.html#antescofo.set_config_value">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">set_config_value</span><span class="p">(</span><span class="n">key</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="n">Any</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Set a specific configuration value and save.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        key: Configuration key</span>
+<span class="sd">        value: Value to set</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">config</span> <span class="o">=</span> <span class="n">load_config</span><span class="p">()</span>
+    <span class="n">config</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+    <span class="n">save_config</span><span class="p">(</span><span class="n">config</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="resolve_score_path">
+<a class="viewcode-back" href="../../module_docs/antescofo/util.html#antescofo.resolve_score_path">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">resolve_score_path</span><span class="p">(</span><span class="n">score_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Path</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Resolve a score file path.</span>
+
+<span class="sd">    If score_name is relative, looks in the default score directory.</span>
+<span class="sd">    If absolute, uses as-is.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        score_name: Score filename or path</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Resolved absolute path</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">score_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">score_name</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">score_path</span><span class="o">.</span><span class="n">is_absolute</span><span class="p">():</span>
+        <span class="k">return</span> <span class="n">score_path</span>
+
+    <span class="c1"># Try current directory first</span>
+    <span class="k">if</span> <span class="n">score_path</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+        <span class="k">return</span> <span class="n">score_path</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span>
+
+    <span class="c1"># Try default score directory</span>
+    <span class="n">default_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">get_config_value</span><span class="p">(</span><span class="s2">&quot;default_score_dir&quot;</span><span class="p">,</span> <span class="s2">&quot;.&quot;</span><span class="p">))</span>
+    <span class="n">default_path</span> <span class="o">=</span> <span class="n">default_dir</span> <span class="o">/</span> <span class="n">score_name</span>
+
+    <span class="k">if</span> <span class="n">default_path</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+        <span class="k">return</span> <span class="n">default_path</span>
+
+    <span class="c1"># Return current directory version (may not exist yet)</span>
+    <span class="k">return</span> <span class="n">score_path</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span></div>
+
+
+
+<div class="viewcode-block" id="get_pd_patch_path">
+<a class="viewcode-back" href="../../module_docs/antescofo/util.html#antescofo.get_pd_patch_path">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_pd_patch_path</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Path</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Get the path to the PD synth patch.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Path to pd_synth_patch.pd or None if not configured</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">path</span> <span class="o">=</span> <span class="n">get_config_value</span><span class="p">(</span><span class="s2">&quot;pd_patch_path&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">path</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">Path</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+    <span class="k">return</span> <span class="kc">None</span></div>
+
+
+
+<div class="viewcode-block" id="print_config">
+<a class="viewcode-back" href="../../module_docs/antescofo/util.html#antescofo.print_config">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">print_config</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Print the current configuration.&quot;&quot;&quot;</span>
+    <span class="n">config</span> <span class="o">=</span> <span class="n">load_config</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">=== Antescofo Configuration ===&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Config file: </span><span class="si">{</span><span class="n">CONFIG_FILE</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Settings:&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">items</span><span class="p">()):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  </span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">()</span></div>
+
+
+
+<span class="c1"># Initialize config on module import</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">CONFIG_FILE</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+        <span class="n">init_config</span><span class="p">()</span>
+<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Could not auto-initialize config: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright NO COPYRIGHT.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

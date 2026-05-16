@@ -1,0 +1,4 @@
+antescofo.wip.events
+====================
+.. automodule:: antescofo.wip.events
+   :members:

@@ -1,0 +1,314 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>antescofo.wip.audio &mdash; antescofo 0.1.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=4ae1632d" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=a58bc63e"></script>
+      <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../../../_static/toggleprompt.js?v=d7ede5d2"></script>
+      <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            antescofo
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../module_docs/antescofo.html">antescofo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../module_docs/antescofo/client.html">antescofo.client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../module_docs/antescofo/constants.html">antescofo.constants</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../module_docs/antescofo/events.html">antescofo.events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../module_docs/antescofo/exceptions.html">antescofo.exceptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../module_docs/antescofo/osc.html">antescofo.osc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../module_docs/antescofo/score.html">antescofo.score</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../module_docs/antescofo/simple_antescofo_score_generator.html">antescofo.simple_antescofo_score_generator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../module_docs/antescofo/types.html">antescofo.types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../module_docs/antescofo/util.html">antescofo.util</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../module_docs/antescofo/wip.html">antescofo.wip</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../module_docs/antescofo/wip/audio.html">antescofo.wip.audio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../module_docs/antescofo/wip/builder.html">antescofo.wip.builder</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../module_docs/antescofo/wip/events.html">antescofo.wip.events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../module_docs/antescofo/wip/player.html">antescofo.wip.player</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">antescofo</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">antescofo.wip.audio</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for antescofo.wip.audio</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Audio playback backends for SimpleScorePlayer.</span>
+
+<span class="sd">This module provides various audio output options:</span>
+<span class="sd">- MIDI output</span>
+<span class="sd">- Synthesized audio (sine waves)</span>
+<span class="sd">- External synthesis hooks</span>
+
+<span class="sd">Each function creates a SimpleScorePlayer configured with the appropriate callbacks.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Optional</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">collections.abc</span><span class="w"> </span><span class="kn">import</span> <span class="n">Iterable</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">.events</span><span class="w"> </span><span class="kn">import</span> <span class="n">Event</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.player</span><span class="w"> </span><span class="kn">import</span> <span class="n">SimpleScorePlayer</span>
+
+
+<div class="viewcode-block" id="play_with_midi">
+<a class="viewcode-back" href="../../../module_docs/antescofo/wip/audio.html#antescofo.wip.play_with_midi">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">play_with_midi</span><span class="p">(</span>
+    <span class="n">score</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">[</span><span class="n">Event</span><span class="p">],</span>
+    <span class="o">*</span><span class="p">,</span>
+    <span class="n">tempo</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">120</span><span class="p">,</span>
+    <span class="n">port_name</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Play score using MIDI output.</span>
+
+<span class="sd">    Requires: pip install python-rtmidi mido</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        score: Iterable of Event objects</span>
+<span class="sd">        tempo: Playback tempo in BPM</span>
+<span class="sd">        port_name: Name of MIDI port to use (None for default)</span>
+
+<span class="sd">    Example:</span>
+<span class="sd">        &gt;&gt;&gt; from antescofo.wip import Event, play_with_midi</span>
+<span class="sd">        &gt;&gt;&gt; score = [Event(&quot;NOTE&quot;, 1.0, &quot;C4 60&quot;)]</span>
+<span class="sd">        &gt;&gt;&gt; # play_with_midi(score)  # Would play via MIDI</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="kn">import</span><span class="w"> </span><span class="nn">mido</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">mido</span><span class="w"> </span><span class="kn">import</span> <span class="n">Message</span>
+    <span class="k">except</span> <span class="ne">ImportError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ImportError</span><span class="p">(</span><span class="s2">&quot;MIDI playback requires: pip install python-rtmidi mido&quot;</span><span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="nn">e</span>
+
+    <span class="c1"># Open MIDI output</span>
+    <span class="k">if</span> <span class="n">port_name</span><span class="p">:</span>
+        <span class="n">port</span> <span class="o">=</span> <span class="n">mido</span><span class="o">.</span><span class="n">open_output</span><span class="p">(</span><span class="n">port_name</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">port</span> <span class="o">=</span> <span class="n">mido</span><span class="o">.</span><span class="n">open_output</span><span class="p">()</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_send_note</span><span class="p">(</span><span class="n">event</span><span class="p">:</span> <span class="n">Event</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Parse and send MIDI note.&quot;&quot;&quot;</span>
+        <span class="n">parts</span> <span class="o">=</span> <span class="n">event</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">parts</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="c1"># Extract MIDI note number (e.g., &quot;C4 60&quot; → 60)</span>
+            <span class="n">midi_note</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">parts</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+            <span class="n">velocity</span> <span class="o">=</span> <span class="mi">64</span>  <span class="c1"># Default velocity</span>
+
+            <span class="c1"># Send note on</span>
+            <span class="n">port</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">Message</span><span class="p">(</span><span class="s1">&#39;note_on&#39;</span><span class="p">,</span> <span class="n">note</span><span class="o">=</span><span class="n">midi_note</span><span class="p">,</span> <span class="n">velocity</span><span class="o">=</span><span class="n">velocity</span><span class="p">))</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;🎹 MIDI Note: </span><span class="si">{</span><span class="n">midi_note</span><span class="si">}</span><span class="s2"> (velocity </span><span class="si">{</span><span class="n">velocity</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_send_note_off</span><span class="p">(</span><span class="n">event</span><span class="p">:</span> <span class="n">Event</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Send note off after duration.&quot;&quot;&quot;</span>
+        <span class="n">parts</span> <span class="o">=</span> <span class="n">event</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">parts</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="n">midi_note</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">parts</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+            <span class="n">port</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">Message</span><span class="p">(</span><span class="s1">&#39;note_off&#39;</span><span class="p">,</span> <span class="n">note</span><span class="o">=</span><span class="n">midi_note</span><span class="p">))</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">player</span> <span class="o">=</span> <span class="n">SimpleScorePlayer</span><span class="p">(</span>
+            <span class="n">score</span><span class="p">,</span>
+            <span class="n">tempo</span><span class="o">=</span><span class="n">tempo</span><span class="p">,</span>
+            <span class="n">sound_callback</span><span class="o">=</span><span class="n">_send_note</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="n">player</span><span class="o">.</span><span class="n">play</span><span class="p">()</span>
+    <span class="k">finally</span><span class="p">:</span>
+        <span class="c1"># Send all notes off and close port</span>
+        <span class="n">port</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">Message</span><span class="p">(</span><span class="s1">&#39;control_change&#39;</span><span class="p">,</span> <span class="n">control</span><span class="o">=</span><span class="mi">123</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>  <span class="c1"># All notes off</span>
+        <span class="n">port</span><span class="o">.</span><span class="n">close</span><span class="p">()</span></div>
+
+
+
+<div class="viewcode-block" id="play_with_audio">
+<a class="viewcode-back" href="../../../module_docs/antescofo/wip/audio.html#antescofo.wip.play_with_audio">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">play_with_audio</span><span class="p">(</span>
+    <span class="n">score</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">[</span><span class="n">Event</span><span class="p">],</span>
+    <span class="o">*</span><span class="p">,</span>
+    <span class="n">tempo</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">120</span><span class="p">,</span>
+    <span class="n">sample_rate</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">44100</span><span class="p">,</span>
+    <span class="n">volume</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.3</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Play score with simple synthesized audio.</span>
+
+<span class="sd">    Uses sine wave synthesis for a basic but functional audio output.</span>
+<span class="sd">    Requires: pip install sounddevice numpy</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        score: Iterable of Event objects</span>
+<span class="sd">        tempo: Playback tempo in BPM</span>
+<span class="sd">        sample_rate: Audio sample rate in Hz</span>
+<span class="sd">        volume: Playback volume (0.0 to 1.0)</span>
+
+<span class="sd">    Example:</span>
+<span class="sd">        &gt;&gt;&gt; from antescofo.wip import Event, play_with_audio</span>
+<span class="sd">        &gt;&gt;&gt; score = [Event(&quot;NOTE&quot;, 1.0, &quot;C4 60&quot;)]</span>
+<span class="sd">        &gt;&gt;&gt; # play_with_audio(score)  # Would play synthesized audio</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="kn">import</span><span class="w"> </span><span class="nn">sounddevice</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sd</span>
+        <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+    <span class="k">except</span> <span class="ne">ImportError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ImportError</span><span class="p">(</span><span class="s2">&quot;Audio playback requires: pip install sounddevice numpy&quot;</span><span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="nn">e</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_note_to_freq</span><span class="p">(</span><span class="n">midi_note</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Convert MIDI note number to frequency in Hz.</span>
+
+<span class="sd">        Uses standard MIDI tuning: A4 (MIDI 69) = 440 Hz</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="mf">440.0</span> <span class="o">*</span> <span class="p">(</span><span class="mf">2.0</span> <span class="o">**</span> <span class="p">((</span><span class="n">midi_note</span> <span class="o">-</span> <span class="mi">69</span><span class="p">)</span> <span class="o">/</span> <span class="mf">12.0</span><span class="p">))</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_play_tone</span><span class="p">(</span><span class="n">event</span><span class="p">:</span> <span class="n">Event</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Generate and play a simple sine wave tone.&quot;&quot;&quot;</span>
+        <span class="n">parts</span> <span class="o">=</span> <span class="n">event</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">parts</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="n">midi_note</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">parts</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+            <span class="n">freq</span> <span class="o">=</span> <span class="n">_note_to_freq</span><span class="p">(</span><span class="n">midi_note</span><span class="p">)</span>
+            <span class="n">duration</span> <span class="o">=</span> <span class="p">(</span><span class="n">event</span><span class="o">.</span><span class="n">duration</span> <span class="o">*</span> <span class="mf">60.0</span><span class="p">)</span> <span class="o">/</span> <span class="n">tempo</span>
+
+            <span class="c1"># Generate sine wave</span>
+            <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">duration</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">sample_rate</span> <span class="o">*</span> <span class="n">duration</span><span class="p">))</span>
+            <span class="n">wave</span> <span class="o">=</span> <span class="n">volume</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">freq</span> <span class="o">*</span> <span class="n">t</span><span class="p">)</span>
+
+            <span class="c1"># Apply simple envelope (fade in/out to avoid clicks)</span>
+            <span class="n">envelope</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones_like</span><span class="p">(</span><span class="n">wave</span><span class="p">)</span>
+            <span class="n">fade_samples</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mf">0.01</span> <span class="o">*</span> <span class="n">sample_rate</span><span class="p">)</span>  <span class="c1"># 10ms fade</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">envelope</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">fade_samples</span><span class="p">:</span>
+                <span class="n">envelope</span><span class="p">[:</span><span class="n">fade_samples</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">fade_samples</span><span class="p">)</span>
+                <span class="n">envelope</span><span class="p">[</span><span class="o">-</span><span class="n">fade_samples</span><span class="p">:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">fade_samples</span><span class="p">)</span>
+
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;🔊 Playing: </span><span class="si">{</span><span class="n">freq</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> Hz (</span><span class="si">{</span><span class="n">midi_note</span><span class="si">}</span><span class="s2">) for </span><span class="si">{</span><span class="n">duration</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">s&quot;</span><span class="p">)</span>
+
+            <span class="c1"># Play audio (blocking)</span>
+            <span class="n">sd</span><span class="o">.</span><span class="n">play</span><span class="p">(</span><span class="n">wave</span> <span class="o">*</span> <span class="n">envelope</span><span class="p">,</span> <span class="n">sample_rate</span><span class="p">)</span>
+            <span class="n">sd</span><span class="o">.</span><span class="n">wait</span><span class="p">()</span>
+
+    <span class="n">player</span> <span class="o">=</span> <span class="n">SimpleScorePlayer</span><span class="p">(</span>
+        <span class="n">score</span><span class="p">,</span>
+        <span class="n">tempo</span><span class="o">=</span><span class="n">tempo</span><span class="p">,</span>
+        <span class="n">sound_callback</span><span class="o">=</span><span class="n">_play_tone</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">player</span><span class="o">.</span><span class="n">play</span><span class="p">()</span></div>
+
+
+
+<div class="viewcode-block" id="create_custom_player">
+<a class="viewcode-back" href="../../../module_docs/antescofo/wip/audio.html#antescofo.wip.create_custom_player">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">create_custom_player</span><span class="p">(</span>
+    <span class="n">score</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">[</span><span class="n">Event</span><span class="p">],</span>
+    <span class="o">*</span><span class="p">,</span>
+    <span class="n">tempo</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">120</span><span class="p">,</span>
+    <span class="n">on_note</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">callable</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">on_action</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">callable</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">SimpleScorePlayer</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Create a player with custom callbacks.</span>
+
+<span class="sd">    Use this to integrate with your own synthesis or control systems.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        score: Iterable of Event objects</span>
+<span class="sd">        tempo: Playback tempo in BPM</span>
+<span class="sd">        on_note: Callback for note events (receives Event object)</span>
+<span class="sd">        on_action: Callback for actions (receives action string)</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Configured SimpleScorePlayer instance</span>
+
+<span class="sd">    Example:</span>
+<span class="sd">        &gt;&gt;&gt; from antescofo.wip import Event, create_custom_player</span>
+<span class="sd">        &gt;&gt;&gt; def my_synth(event):</span>
+<span class="sd">        ...     print(f&quot;Custom synth: {event.data}&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; score = [Event(&quot;NOTE&quot;, 1.0, &quot;C4 60&quot;)]</span>
+<span class="sd">        &gt;&gt;&gt; player = create_custom_player(score, on_note=my_synth)</span>
+<span class="sd">        &gt;&gt;&gt; # player.play()  # Would use custom callback</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">SimpleScorePlayer</span><span class="p">(</span>
+        <span class="n">score</span><span class="p">,</span>
+        <span class="n">tempo</span><span class="o">=</span><span class="n">tempo</span><span class="p">,</span>
+        <span class="n">sound_callback</span><span class="o">=</span><span class="n">on_note</span><span class="p">,</span>
+        <span class="n">action_callback</span><span class="o">=</span><span class="n">on_action</span><span class="p">,</span>
+    <span class="p">)</span></div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright NO COPYRIGHT.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

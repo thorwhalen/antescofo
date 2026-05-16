@@ -1,0 +1,305 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>antescofo.wip.builder &mdash; antescofo 0.1.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=4ae1632d" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=a58bc63e"></script>
+      <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../../../_static/toggleprompt.js?v=d7ede5d2"></script>
+      <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            antescofo
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../module_docs/antescofo.html">antescofo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../module_docs/antescofo/client.html">antescofo.client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../module_docs/antescofo/constants.html">antescofo.constants</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../module_docs/antescofo/events.html">antescofo.events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../module_docs/antescofo/exceptions.html">antescofo.exceptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../module_docs/antescofo/osc.html">antescofo.osc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../module_docs/antescofo/score.html">antescofo.score</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../module_docs/antescofo/simple_antescofo_score_generator.html">antescofo.simple_antescofo_score_generator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../module_docs/antescofo/types.html">antescofo.types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../module_docs/antescofo/util.html">antescofo.util</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../module_docs/antescofo/wip.html">antescofo.wip</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../module_docs/antescofo/wip/audio.html">antescofo.wip.audio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../module_docs/antescofo/wip/builder.html">antescofo.wip.builder</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../module_docs/antescofo/wip/events.html">antescofo.wip.events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../module_docs/antescofo/wip/player.html">antescofo.wip.player</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">antescofo</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">antescofo.wip.builder</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for antescofo.wip.builder</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Score builder for creating playable scores.</span>
+
+<span class="sd">This module provides an enhanced ScoreBuilder that works with both:</span>
+<span class="sd">- The original Antescofo text format (for OSC client)</span>
+<span class="sd">- The SimpleScorePlayer (for direct Python playback)</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Iterator</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">.events</span><span class="w"> </span><span class="kn">import</span> <span class="n">Event</span>
+
+
+<div class="viewcode-block" id="PlayableScoreBuilder">
+<a class="viewcode-back" href="../../../module_docs/antescofo/wip/builder.html#antescofo.wip.PlayableScoreBuilder">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">PlayableScoreBuilder</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Build Antescofo scores that can be played directly in Python.</span>
+
+<span class="sd">    This builder creates both:</span>
+<span class="sd">    1. Antescofo text format (for saving .asco files)</span>
+<span class="sd">    2. Event objects (for SimpleScorePlayer)</span>
+
+<span class="sd">    Can be used as a drop-in replacement for the original ScoreBuilder</span>
+<span class="sd">    while adding playback capabilities.</span>
+
+<span class="sd">    Example:</span>
+<span class="sd">        &gt;&gt;&gt; builder = (</span>
+<span class="sd">        ...     PlayableScoreBuilder()</span>
+<span class="sd">        ...     .comment(&quot;C Major Scale&quot;)</span>
+<span class="sd">        ...     .event(&quot;NOTE&quot;, 1.0, &quot;C4 60&quot;)</span>
+<span class="sd">        ...     .action(&#39;print &quot;C4&quot;&#39;)</span>
+<span class="sd">        ...     .event(&quot;NOTE&quot;, 1.0, &quot;D4 62&quot;)</span>
+<span class="sd">        ... )</span>
+<span class="sd">        &gt;&gt;&gt; events = builder.build()</span>
+<span class="sd">        &gt;&gt;&gt; len(events)</span>
+<span class="sd">        2</span>
+<span class="sd">        &gt;&gt;&gt; str(builder).split(&#39;\\n&#39;)[0]</span>
+<span class="sd">        &#39;; C Major Scale&#39;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialize an empty score builder.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_lines</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_events</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Event</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_current_actions</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+
+<div class="viewcode-block" id="PlayableScoreBuilder.comment">
+<a class="viewcode-back" href="../../../module_docs/antescofo/wip/builder.html#antescofo.wip.PlayableScoreBuilder.comment">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">comment</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;PlayableScoreBuilder&#39;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Add a comment line.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            text: Comment text (will be prefixed with &#39;;&#39;)</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Self for method chaining</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;; </span><span class="si">{</span><span class="n">text</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+
+<div class="viewcode-block" id="PlayableScoreBuilder.raw">
+<a class="viewcode-back" href="../../../module_docs/antescofo/wip/builder.html#antescofo.wip.PlayableScoreBuilder.raw">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">raw</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">line</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;PlayableScoreBuilder&#39;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Add a raw Antescofo script line.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            line: Raw line to add (variable definitions, functions, etc.)</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Self for method chaining</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+
+<div class="viewcode-block" id="PlayableScoreBuilder.event">
+<a class="viewcode-back" href="../../../module_docs/antescofo/wip/builder.html#antescofo.wip.PlayableScoreBuilder.event">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">event</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">event_type</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">duration</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+        <span class="n">data</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;PlayableScoreBuilder&#39;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Add an event (note, chord, etc.).</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            event_type: Type of event (e.g., &quot;NOTE&quot;, &quot;CHORD&quot;)</span>
+<span class="sd">            duration: Duration in beats</span>
+<span class="sd">            data: Event data (e.g., &quot;C4 60&quot; for MIDI note)</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Self for method chaining</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Save previous event&#39;s actions</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_current_actions</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_events</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_events</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">actions</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_current_actions</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_current_actions</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="c1"># Add to text representation</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">event_type</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">duration</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">data</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Add to event list</span>
+        <span class="n">event_obj</span> <span class="o">=</span> <span class="n">Event</span><span class="p">(</span><span class="n">event_type</span><span class="p">,</span> <span class="n">duration</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="p">[])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_events</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">event_obj</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+
+<div class="viewcode-block" id="PlayableScoreBuilder.action">
+<a class="viewcode-back" href="../../../module_docs/antescofo/wip/builder.html#antescofo.wip.PlayableScoreBuilder.action">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">action</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">code</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;PlayableScoreBuilder&#39;</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Add an action to the last event.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            code: Antescofo action code to execute</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Self for method chaining</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;    </span><span class="si">{</span><span class="n">code</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_current_actions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">code</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span></div>
+
+
+<div class="viewcode-block" id="PlayableScoreBuilder.build">
+<a class="viewcode-back" href="../../../module_docs/antescofo/wip/builder.html#antescofo.wip.PlayableScoreBuilder.build">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">build</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">Event</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Build and return the list of Event objects for playback.</span>
+
+<span class="sd">        Finalizes the score and returns Event objects ready for SimpleScorePlayer.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            List of Event objects</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Finalize last event&#39;s actions</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_current_actions</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_events</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_events</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">actions</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_current_actions</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_current_actions</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_events</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span></div>
+
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Iterator</span><span class="p">[</span><span class="n">Event</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Make builder directly iterable.</span>
+
+<span class="sd">        Allows using the builder directly with SimpleScorePlayer:</span>
+<span class="sd">            player = SimpleScorePlayer(builder, tempo=120)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">yield from</span> <span class="bp">self</span><span class="o">.</span><span class="n">build</span><span class="p">()</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Return Antescofo script text representation.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Complete Antescofo script as string</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_lines</span><span class="p">)</span>
+
+<div class="viewcode-block" id="PlayableScoreBuilder.save">
+<a class="viewcode-back" href="../../../module_docs/antescofo/wip/builder.html#antescofo.wip.PlayableScoreBuilder.save">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">save</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filepath</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Save score to Antescofo text file.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            filepath: Path to save the .asco.txt file</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">filepath</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">filepath</span><span class="p">)</span>
+        <span class="n">filepath</span><span class="o">.</span><span class="n">write_text</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="p">),</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;✅ Saved score to: </span><span class="si">{</span><span class="n">filepath</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="PlayableScoreBuilder.get_text">
+<a class="viewcode-back" href="../../../module_docs/antescofo/wip/builder.html#antescofo.wip.PlayableScoreBuilder.get_text">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_text</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Get the Antescofo script text.</span>
+
+<span class="sd">        Alias for __str__() for clarity.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Complete Antescofo script as string</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span></div>
+</div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright NO COPYRIGHT.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

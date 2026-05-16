@@ -1,0 +1,4 @@
+antescofo.wip.player
+====================
+.. automodule:: antescofo.wip.player
+   :members:

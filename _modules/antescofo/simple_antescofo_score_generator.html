@@ -1,0 +1,173 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>antescofo.simple_antescofo_score_generator &mdash; antescofo 0.1.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css?v=4ae1632d" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=a58bc63e"></script>
+      <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../../_static/toggleprompt.js?v=d7ede5d2"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            antescofo
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../module_docs/antescofo.html">antescofo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../module_docs/antescofo/client.html">antescofo.client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../module_docs/antescofo/constants.html">antescofo.constants</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../module_docs/antescofo/events.html">antescofo.events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../module_docs/antescofo/exceptions.html">antescofo.exceptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../module_docs/antescofo/osc.html">antescofo.osc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../module_docs/antescofo/score.html">antescofo.score</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../module_docs/antescofo/simple_antescofo_score_generator.html">antescofo.simple_antescofo_score_generator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../module_docs/antescofo/types.html">antescofo.types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../module_docs/antescofo/util.html">antescofo.util</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../module_docs/antescofo/wip.html">antescofo.wip</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../module_docs/antescofo/wip/audio.html">antescofo.wip.audio</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../module_docs/antescofo/wip/builder.html">antescofo.wip.builder</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../module_docs/antescofo/wip/events.html">antescofo.wip.events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../module_docs/antescofo/wip/player.html">antescofo.wip.player</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">antescofo</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">antescofo.simple_antescofo_score_generator</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for antescofo.simple_antescofo_score_generator</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Utility script to generate a simple Antescofo score file for the demo.</span>
+
+<span class="sd">The score defines two notes and three actions:</span>
+<span class="sd">1. When NOTE_1 is detected (or time passes), send an OSC message to PD synth.</span>
+<span class="sd">2. When NOTE_2 is detected, change the global tempo variable.</span>
+<span class="sd">3. The PD patch will be listening for &#39;/synth/play&#39; and react accordingly.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">antescofo</span><span class="w"> </span><span class="kn">import</span> <span class="n">ScoreBuilder</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+
+<span class="c1"># Define the score file path relative to the root directory</span>
+<span class="n">SCORE_FILE</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;simple_demo_score.asco.txt&quot;</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="generate_score">
+<a class="viewcode-back" href="../../module_docs/antescofo/simple_antescofo_score_generator.html#antescofo.simple_antescofo_score_generator.generate_score">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">generate_score</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Generates a simple, playable Antescofo score.&quot;&quot;&quot;</span>
+    <span class="n">builder</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">ScoreBuilder</span><span class="p">()</span>
+        <span class="o">.</span><span class="n">comment</span><span class="p">(</span><span class="s2">&quot;Simple Score for Python/PD OSC Demo&quot;</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">raw</span><span class="p">(</span><span class="s2">&quot;@global $volume := 0.5&quot;</span><span class="p">)</span>  <span class="c1"># Define a variable</span>
+        <span class="o">.</span><span class="n">raw</span><span class="p">(</span><span class="s2">&quot;@global $pitch_offset := 0&quot;</span><span class="p">)</span>  <span class="c1"># Define a variable</span>
+        <span class="o">.</span><span class="n">raw</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">comment</span><span class="p">(</span><span class="s2">&quot;--- NOTE 1 ---&quot;</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">event</span><span class="p">(</span><span class="s2">&quot;NOTE&quot;</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="s2">&quot;C4 60&quot;</span><span class="p">)</span>  <span class="c1"># Event type, duration in beats, midi pitch</span>
+        <span class="o">.</span><span class="n">action</span><span class="p">(</span><span class="s1">&#39;OSC &quot;/synth/play&quot; 440 $volume&#39;</span><span class="p">)</span>  <span class="c1"># Action 1: Send OSC message to PD</span>
+        <span class="o">.</span><span class="n">action</span><span class="p">(</span><span class="s1">&#39;print &quot;Action 1 triggered: playing C4&quot;&#39;</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">comment</span><span class="p">(</span><span class="s2">&quot;--- NOTE 2 ---&quot;</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">event</span><span class="p">(</span><span class="s2">&quot;NOTE&quot;</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="s2">&quot;E4 64&quot;</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">action</span><span class="p">(</span><span class="s1">&#39;OSC &quot;/synth/play&quot; 660 $volume&#39;</span><span class="p">)</span>  <span class="c1"># Action 2: Send OSC message to PD (higher pitch)</span>
+        <span class="o">.</span><span class="n">action</span><span class="p">(</span><span class="s1">&#39;print &quot;Action 2 triggered: playing E4&quot;&#39;</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">comment</span><span class="p">(</span><span class="s2">&quot;--- NOTE 3 ---&quot;</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">event</span><span class="p">(</span><span class="s2">&quot;NOTE&quot;</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="s2">&quot;G4 67&quot;</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">action</span><span class="p">(</span><span class="s1">&#39;print &quot;Score finished.&quot;&#39;</span><span class="p">)</span>  <span class="c1"># Final action</span>
+        <span class="o">.</span><span class="n">action</span><span class="p">(</span><span class="s1">&#39;OSC &quot;/synth/stop&quot; 0&#39;</span><span class="p">)</span>  <span class="c1"># Stop the synth</span>
+    <span class="p">)</span>
+
+    <span class="n">builder</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">SCORE_FILE</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">[INFO] Generated Antescofo score file: </span><span class="si">{</span><span class="n">SCORE_FILE</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
+
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="c1"># Ensure the required dependencies (like ScoreBuilder) are available</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">generate_score</span><span class="p">()</span>
+    <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">[ERROR] Could not run score_generator.py.&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Please ensure your antescofo package structure is installed correctly.&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Required Python dependency: python-osc (part of the antescofo package)&quot;</span><span class="p">)</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright NO COPYRIGHT.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
