@@ -6,10 +6,10 @@ Handles low-level OSC message sending and receiving using python-osc.
 
 import logging
 import threading
-from typing import Any, Callable, List, Optional, Tuple
+from typing import Callable, Optional
 
 from pythonosc import dispatcher as osc_dispatcher
-from pythonosc import osc_message_builder, osc_server, udp_client
+from pythonosc import osc_server, udp_client
 
 from .constants import DEFAULT_ANTESCOFO_PORT, DEFAULT_HOST, OSC_PREFIX_ANTESCOFO
 from .events import Event, EventType, ActionTraceEvent, EventDispatcher

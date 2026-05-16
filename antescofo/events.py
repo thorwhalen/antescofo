@@ -9,15 +9,6 @@ from typing import Any, Callable, Dict, List, Optional
 from enum import Enum
 import logging
 
-from .constants import (
-    MSG_STOP,
-    MSG_EVENT_BEATPOS,
-    MSG_RNOW,
-    MSG_TEMPO,
-    MSG_PITCH,
-    MSG_ACTION_TRACE,
-    MSG_LOAD_SCORE,
-)
 
 
 logger = logging.getLogger(__name__)

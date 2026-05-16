@@ -6,7 +6,7 @@ Provides utilities for reading, writing, and manipulating Antescofo score files.
 
 import logging
 from pathlib import Path
-from typing import List, Optional, Union
+from typing import Optional, Union
 
 from .exceptions import ScoreError
 

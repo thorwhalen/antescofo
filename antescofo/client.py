@@ -7,7 +7,7 @@ Provides a user-friendly API for controlling Antescofo instances.
 import logging
 import time
 from pathlib import Path
-from typing import Any, Callable, Optional, Union
+from typing import Callable, Optional, Union
 
 from .constants import (
     CMD_ASCOGRAPHCOMM,
@@ -30,7 +30,7 @@ from .constants import (
 from .events import Event, EventType
 from .exceptions import AntescofoException, ConnectionError
 from .osc import OSCCommunicator
-from .types import AntescofoValue, to_osc_value
+from .types import to_osc_value
 from .util import get_config_value
 
 logger = logging.getLogger(__name__)
