@@ -43,7 +43,7 @@ class PlayableScoreBuilder:
         self._events: list[Event] = []
         self._current_actions: list[str] = []
 
-    def comment(self, text: str) -> 'PlayableScoreBuilder':
+    def comment(self, text: str) -> "PlayableScoreBuilder":
         """Add a comment line.
 
         Args:
@@ -55,7 +55,7 @@ class PlayableScoreBuilder:
         self._lines.append(f"; {text}")
         return self
 
-    def raw(self, line: str) -> 'PlayableScoreBuilder':
+    def raw(self, line: str) -> "PlayableScoreBuilder":
         """Add a raw Antescofo script line.
 
         Args:
@@ -72,7 +72,7 @@ class PlayableScoreBuilder:
         event_type: str,
         duration: float,
         data: str,
-    ) -> 'PlayableScoreBuilder':
+    ) -> "PlayableScoreBuilder":
         """Add an event (note, chord, etc.).
 
         Args:
@@ -97,7 +97,7 @@ class PlayableScoreBuilder:
 
         return self
 
-    def action(self, code: str) -> 'PlayableScoreBuilder':
+    def action(self, code: str) -> "PlayableScoreBuilder":
         """Add an action to the last event.
 
         Args:

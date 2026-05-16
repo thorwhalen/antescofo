@@ -105,7 +105,9 @@ class ScoreFile:
             line = f"@insert {filepath_str}"
         self.append(line)
 
-    def insert_file_once(self, filepath: Union[str, Path], quote_if_spaces: bool = True):
+    def insert_file_once(
+        self, filepath: Union[str, Path], quote_if_spaces: bool = True
+    ):
         """
         Insert a @insert_once directive for another file.
 
@@ -159,7 +161,9 @@ class ScoreFile:
         """
         self.append(f"    {action}")
 
-    def add_conditional(self, condition: str, if_block: str, else_block: Optional[str] = None):
+    def add_conditional(
+        self, condition: str, if_block: str, else_block: Optional[str] = None
+    ):
         """
         Add a conditional block.
 

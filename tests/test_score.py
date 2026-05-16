@@ -98,7 +98,9 @@ class TestScoreFile:
         score = ScoreFile(content)
 
         # Save to temporary file
-        with tempfile.NamedTemporaryFile(mode="w", delete=False, suffix=".asco.txt") as f:
+        with tempfile.NamedTemporaryFile(
+            mode="w", delete=False, suffix=".asco.txt"
+        ) as f:
             temp_path = f.name
 
         try:
@@ -179,7 +181,9 @@ class TestScoreBuilder:
         """Test saving with builder."""
         builder = ScoreBuilder().comment("Test")
 
-        with tempfile.NamedTemporaryFile(mode="w", delete=False, suffix=".asco.txt") as f:
+        with tempfile.NamedTemporaryFile(
+            mode="w", delete=False, suffix=".asco.txt"
+        ) as f:
             temp_path = f.name
 
         try:

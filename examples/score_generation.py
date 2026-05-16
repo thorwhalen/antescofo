@@ -50,7 +50,7 @@ def example_score_builder():
         .comment("A simple melody")
         # Add events with actions
         .event("NOTE", 1.0, "C4 60")
-        .action('$tempo := 120')
+        .action("$tempo := 120")
         .action('print "Starting melody"')
         # Another event
         .event("NOTE", 0.5, "E4 64")
@@ -106,7 +106,7 @@ def example_conditional():
 
     # Add a conditional block
     score.add_conditional(
-        "@configuration_arch == \"darwin\"",
+        '@configuration_arch == "darwin"',
         'print "Running on macOS"',
         'print "Not running on macOS"',
     )

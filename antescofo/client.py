@@ -153,7 +153,9 @@ class AntescofoClient:
     def _ensure_connected(self):
         """Ensure we're connected to Antescofo."""
         if not self._connected or self._osc is None:
-            raise AntescofoException("Not connected to Antescofo. Call connect() first.")
+            raise AntescofoException(
+                "Not connected to Antescofo. Call connect() first."
+            )
 
     def _send_command(self, command: str, *args):
         """
@@ -269,7 +271,9 @@ class AntescofoClient:
         """
         self._send_command(CMD_INCOMING_OSC_PORT, port)
 
-    def configure_ascograph(self, host: str = DEFAULT_HOST, port: int = DEFAULT_ASCOGRAPH_PORT):
+    def configure_ascograph(
+        self, host: str = DEFAULT_HOST, port: int = DEFAULT_ASCOGRAPH_PORT
+    ):
         """
         Configure Ascograph communication.
 

@@ -7,7 +7,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "antescofo"
-version = "0.1.1"
+version = "0.1.2"
 description = "A Python interface for Antescofo, the score following and synchronous programming language for music"
 readme = "README.md"
 requires-python = ">=3.10"

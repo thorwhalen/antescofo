@@ -10,7 +10,6 @@ from enum import Enum
 import logging
 
 
-
 logger = logging.getLogger(__name__)
 
 
@@ -112,9 +111,7 @@ class EventDispatcher:
         self._handlers: Dict[EventType, List[EventHandler]] = {}
         self._global_handlers: List[EventHandler] = []
 
-    def subscribe(
-        self, event_type: Optional[EventType], handler: EventHandler
-    ) -> None:
+    def subscribe(self, event_type: Optional[EventType], handler: EventHandler) -> None:
         """
         Subscribe to an event type.
 

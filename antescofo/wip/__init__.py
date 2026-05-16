@@ -43,10 +43,10 @@ from .audio import play_with_audio, play_with_midi, create_custom_player
 from .builder import PlayableScoreBuilder
 
 __all__ = [
-    'Event',
-    'SimpleScorePlayer',
-    'PlayableScoreBuilder',
-    'play_with_audio',
-    'play_with_midi',
-    'create_custom_player',
+    "Event",
+    "SimpleScorePlayer",
+    "PlayableScoreBuilder",
+    "play_with_audio",
+    "play_with_midi",
+    "create_custom_player",
 ]

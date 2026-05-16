@@ -25,7 +25,7 @@ def main():
     if CONFIG_FILE.exists():
         print(f"\n⚠️  Config file already exists!")
         response = input("Overwrite existing config? (y/N): ").strip().lower()
-        if response != 'y':
+        if response != "y":
             print("\nCancelled. Using existing config.")
             print_config()
             return

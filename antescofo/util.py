@@ -75,7 +75,7 @@ def init_config(force: bool = False) -> Path:
     config["pd_patch_path"] = _get_default_pd_patch_path()
 
     # Save config
-    with open(CONFIG_FILE, 'w') as f:
+    with open(CONFIG_FILE, "w") as f:
         json.dump(config, f, indent=2)
 
     logger.info(f"Created config file at {CONFIG_FILE}")
@@ -103,7 +103,7 @@ def load_config(reload: bool = False) -> Dict[str, Any]:
 
     # Load config
     try:
-        with open(CONFIG_FILE, 'r') as f:
+        with open(CONFIG_FILE, "r") as f:
             config = json.load(f)
 
         # Merge with defaults (in case new keys were added)
@@ -128,7 +128,7 @@ def save_config(config: Dict[str, Any]):
     global _cached_config
     ensure_config_dir()
 
-    with open(CONFIG_FILE, 'w') as f:
+    with open(CONFIG_FILE, "w") as f:
         json.dump(config, f, indent=2)
 
     _cached_config = config

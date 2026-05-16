@@ -28,7 +28,9 @@ def generate_score():
         .action('print "Action 1 triggered: playing C4"')
         .comment("--- NOTE 2 ---")
         .event("NOTE", 1.0, "E4 64")
-        .action('OSC "/synth/play" 660 $volume')  # Action 2: Send OSC message to PD (higher pitch)
+        .action(
+            'OSC "/synth/play" 660 $volume'
+        )  # Action 2: Send OSC message to PD (higher pitch)
         .action('print "Action 2 triggered: playing E4"')
         .comment("--- NOTE 3 ---")
         .event("NOTE", 0.5, "G4 67")

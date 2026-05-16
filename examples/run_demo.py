@@ -27,7 +27,9 @@ from antescofo.util import (
 )
 
 # Set up logging
-logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+logging.basicConfig(
+    level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s"
+)
 
 # Score file (will be created in current directory)
 SCORE_NAME = "simple_demo_score.asco.txt"
@@ -176,7 +178,9 @@ def main():
         print("  2. Is pd_synth_patch.pd open?")
         print("  3. Did you click the Antescofo config messages in the patch?")
         print("  4. Are the ports correct in your config?")
-        print(f"     - Antescofo listening on: {get_config_value('antescofo_send_port')}")
+        print(
+            f"     - Antescofo listening on: {get_config_value('antescofo_send_port')}"
+        )
         print(f"     - Python listening on: {get_config_value('python_receive_port')}")
         print(f"     - PD synth listening on: {get_config_value('pd_listen_port')}")
 

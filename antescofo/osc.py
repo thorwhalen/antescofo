@@ -66,9 +66,7 @@ class OSCCommunicator:
     def _setup_handlers(self):
         """Setup OSC message handlers."""
         # Map all /antescofo/* messages
-        self._dispatcher.map(
-            f"{OSC_PREFIX_ANTESCOFO}*", self._handle_antescofo_message
-        )
+        self._dispatcher.map(f"{OSC_PREFIX_ANTESCOFO}*", self._handle_antescofo_message)
 
         # Catch-all for other messages
         self._dispatcher.set_default_handler(self._handle_unknown_message)
@@ -153,7 +151,9 @@ class OSCCommunicator:
             *args: Message arguments
         """
         try:
-            self._client.send_message(address, args if len(args) > 1 else args[0] if args else None)
+            self._client.send_message(
+                address, args if len(args) > 1 else args[0] if args else None
+            )
             logger.debug(f"Sent OSC message: {address} {args}")
         except Exception as e:
             raise OSCError(f"Failed to send OSC message: {e}")

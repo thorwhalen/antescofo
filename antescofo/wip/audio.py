@@ -40,7 +40,9 @@ def play_with_midi(
         import mido
         from mido import Message
     except ImportError as e:
-        raise ImportError("MIDI playback requires: pip install python-rtmidi mido") from e
+        raise ImportError(
+            "MIDI playback requires: pip install python-rtmidi mido"
+        ) from e
 
     # Open MIDI output
     if port_name:
@@ -57,7 +59,7 @@ def play_with_midi(
             velocity = 64  # Default velocity
 
             # Send note on
-            port.send(Message('note_on', note=midi_note, velocity=velocity))
+            port.send(Message("note_on", note=midi_note, velocity=velocity))
             print(f"🎹 MIDI Note: {midi_note} (velocity {velocity})")
 
     def _send_note_off(event: Event) -> None:
@@ -65,7 +67,7 @@ def play_with_midi(
         parts = event.data.split()
         if len(parts) >= 2:
             midi_note = int(parts[1])
-            port.send(Message('note_off', note=midi_note))
+            port.send(Message("note_off", note=midi_note))
 
     try:
         player = SimpleScorePlayer(
@@ -76,7 +78,7 @@ def play_with_midi(
         player.play()
     finally:
         # Send all notes off and close port
-        port.send(Message('control_change', control=123, value=0))  # All notes off
+        port.send(Message("control_change", control=123, value=0))  # All notes off
         port.close()
 
 
@@ -107,7 +109,9 @@ def play_with_audio(
         import sounddevice as sd
         import numpy as np
     except ImportError as e:
-        raise ImportError("Audio playback requires: pip install sounddevice numpy") from e
+        raise ImportError(
+            "Audio playback requires: pip install sounddevice numpy"
+        ) from e
 
     def _note_to_freq(midi_note: int) -> float:
         """Convert MIDI note number to frequency in Hz.

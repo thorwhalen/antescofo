@@ -21,7 +21,9 @@ PYTHON_RECEIVE_PORT = 9999
 SCORE_FILE = Path("simple_demo_score.asco.txt")
 
 # Set up logging for visibility
-logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+logging.basicConfig(
+    level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s"
+)
 
 
 def on_action_trace(event: Event):
@@ -91,7 +93,9 @@ def main_demo():
 
     except Exception as e:
         print(f"\n[FATAL ERROR] An Antescofo communication error occurred: {e}")
-        print("\n*TROUBLESHOOTING TIP: Ensure Pd patch is loaded and OSC ports are set correctly.*")
+        print(
+            "\n*TROUBLESHOOTING TIP: Ensure Pd patch is loaded and OSC ports are set correctly.*"
+        )
 
     finally:
         client.disconnect()
