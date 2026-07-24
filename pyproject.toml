@@ -63,6 +63,32 @@ include = [
     "antescofo*",
 ]
 
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+exclude = [
+    "**/*.ipynb",
+    ".git",
+    ".venv",
+    "build",
+    "dist",
+    "tests",
+    "examples",
+    "scrap",
+]
+
+[tool.ruff.lint]
+select = ["D100"]
+ignore = ["D203", "E501", "B905"]
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+
+[tool.ruff.lint.per-file-ignores]
+"**/tests/*" = ["D"]
+"**/examples/*" = ["D"]
+"**/scrap/*" = ["D"]
+
 [tool.black]
 line-length = 100
 target-version = [
