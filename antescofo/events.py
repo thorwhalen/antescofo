@@ -127,9 +127,7 @@ class EventDispatcher:
             self._handlers[event_type].append(handler)
         logger.debug(f"Subscribed handler to {event_type}")
 
-    def unsubscribe(
-        self, event_type: Optional[EventType], handler: EventHandler
-    ) -> None:
+    def unsubscribe(self, event_type: Optional[EventType], handler: EventHandler) -> None:
         """
         Unsubscribe from an event type.
 

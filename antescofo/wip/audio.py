@@ -40,9 +40,7 @@ def play_with_midi(
         import mido
         from mido import Message
     except ImportError as e:
-        raise ImportError(
-            "MIDI playback requires: pip install python-rtmidi mido"
-        ) from e
+        raise ImportError("MIDI playback requires: pip install python-rtmidi mido") from e
 
     # Open MIDI output
     if port_name:
@@ -109,9 +107,7 @@ def play_with_audio(
         import sounddevice as sd
         import numpy as np
     except ImportError as e:
-        raise ImportError(
-            "Audio playback requires: pip install sounddevice numpy"
-        ) from e
+        raise ImportError("Audio playback requires: pip install sounddevice numpy") from e
 
     def _note_to_freq(midi_note: int) -> float:
         """Convert MIDI note number to frequency in Hz.

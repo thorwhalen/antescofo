@@ -95,15 +95,18 @@ from antescofo import AntescofoClient, EventType
 client = AntescofoClient(
     host="localhost",
     port=5678,
-    receive_port=9999  # Port to receive events on
+    receive_port=9999,  # Port to receive events on
 )
+
 
 # Define event handlers
 def on_tempo_change(event):
     print(f"Tempo changed to: {event.data}")
 
+
 def on_beat_position(event):
     print(f"Beat position: {event.data}")
+
 
 # Connect and subscribe
 client.connect()
@@ -134,7 +137,7 @@ builder = (
     .event("NOTE", 1.0, "C4 60")
     .action('print "Hello from C4"')
     .event("NOTE", 0.5, "D4 62")
-    .action('$tempo := 120')
+    .action("$tempo := 120")
     .event("NOTE", 0.5, "E4 64")
     .action('print "Finished!"')
 )
@@ -155,10 +158,10 @@ The main interface for controlling Antescofo.
 
 ```python
 client = AntescofoClient(
-    host="localhost",        # Antescofo host
-    port=5678,              # Port to send messages to
-    receive_port=None,      # Port to receive events (optional)
-    auto_connect=False      # Auto-connect on initialization
+    host="localhost",  # Antescofo host
+    port=5678,  # Port to send messages to
+    receive_port=None,  # Port to receive events (optional)
+    auto_connect=False,  # Auto-connect on initialization
 )
 ```
 
@@ -258,11 +261,7 @@ score.insert_file("library.asco.txt")
 score.insert_file_once("utilities.asco.txt")
 
 # Add conditionals
-score.add_conditional(
-    "@arch_darwin",
-    'print "macOS"',
-    'print "Other OS"'
-)
+score.add_conditional("@arch_darwin", 'print "macOS"', 'print "Other OS"')
 
 # Save
 score.save("myscore.asco.txt")

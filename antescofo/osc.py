@@ -126,9 +126,7 @@ class OSCCommunicator:
             self._server = osc_server.ThreadingOSCUDPServer(
                 (DEFAULT_HOST, self.receive_port), self._dispatcher
             )
-            self._server_thread = threading.Thread(
-                target=self._server.serve_forever, daemon=True
-            )
+            self._server_thread = threading.Thread(target=self._server.serve_forever, daemon=True)
             self._server_thread.start()
             logger.info(f"Started OSC server on port {self.receive_port}")
         except Exception as e:
@@ -151,9 +149,7 @@ class OSCCommunicator:
             *args: Message arguments
         """
         try:
-            self._client.send_message(
-                address, args if len(args) > 1 else args[0] if args else None
-            )
+            self._client.send_message(address, args if len(args) > 1 else args[0] if args else None)
             logger.debug(f"Sent OSC message: {address} {args}")
         except Exception as e:
             raise OSCError(f"Failed to send OSC message: {e}")
@@ -173,9 +169,7 @@ class OSCCommunicator:
         except Exception as e:
             raise OSCError(f"Failed to send raw message: {e}")
 
-    def subscribe(
-        self, event_type: Optional[EventType], handler: Callable[[Event], None]
-    ):
+    def subscribe(self, event_type: Optional[EventType], handler: Callable[[Event], None]):
         """
         Subscribe to events.
 
@@ -185,9 +179,7 @@ class OSCCommunicator:
         """
         self.event_dispatcher.subscribe(event_type, handler)
 
-    def unsubscribe(
-        self, event_type: Optional[EventType], handler: Callable[[Event], None]
-    ):
+    def unsubscribe(self, event_type: Optional[EventType], handler: Callable[[Event], None]):
         """
         Unsubscribe from events.
 

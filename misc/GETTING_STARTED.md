@@ -174,7 +174,7 @@ client.load_score("my_score.asco.txt")
 client.start()
 
 # Control tempo dynamically
-client.set_tempo(60)   # Slow
+client.set_tempo(60)  # Slow
 client.wait(2)
 client.set_tempo(120)  # Medium
 client.wait(2)
@@ -191,8 +191,10 @@ from antescofo import AntescofoClient, EventType
 client = AntescofoClient(receive_port=9999)
 client.connect()
 
+
 def on_beat(event):
     print(f"Beat: {event.data}")
+
 
 client.on(EventType.BEAT_POSITION, on_beat)
 client.start()
